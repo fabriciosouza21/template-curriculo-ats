@@ -221,7 +221,7 @@ def test_verbo_de_acao_apos_prefixo_produto_eh_aceito():
     h2(doc, "Experiência")
     linha_data(doc, "iUsecase", "Jan 2023 - Atual")
     bullet(doc, "Implementei exportação CSV em Spring Boot.",
-           negrito_prefixo="Apontamento: ")
+           negrito_prefixo="ProdutoX: ")
     h2(doc, "Formação")
     linha_data(doc, "Bacharelado: UFPA", "Jan 2017 - Dez 2021")
 
@@ -338,3 +338,44 @@ def test_manifesto_habilidades_bucket_pedido_presente_passa():
     doc = _doc_valido_minimo()  # tem "Backend (JVM)"
     manifesto = {"habilidades_buckets": ["Backend (JVM)"]}
     validar(doc, manifesto)  # Não deve levantar.
+
+
+# ---- Regras de honestidade (defesa em profundidade no DOCX) ----
+# Estas regras já vivem em data/validate.py sobre o YAML. Aqui garantem
+# que o render não injetou texto de outra fonte que viole as regras.
+
+def test_honestidade_jooq_no_bullet_consol_falha():
+    """jOOQ não pode aparecer no bullet de Consol no Document final."""
+    doc = _doc_valido_minimo()
+    # Adiciona bullet Consol com jOOQ (violação da regra de honestidade).
+    h2(doc, "Experiência")
+    bullet(doc, "Desenvolvi algo com jOOQ no backend.",
+           negrito_prefixo="Consol: ")
+    with pytest.raises(AssertionError) as excinfo:
+        validar(doc)
+    assert "jOOQ" in str(excinfo.value)
+    assert "Consol" in str(excinfo.value)
+
+
+def test_honestidade_live2u_deve_declarar_sys3_falha():
+    """Bullet de Live2U deve mencionar Sys3 (backend externo)."""
+    doc = _doc_valido_minimo()
+    h2(doc, "Experiência")
+    # Descrição que omite qualquer menção a Sys3 ou "externo".
+    bullet(doc, "Integrei serviço de RAG sobre exames no frontend Angular.",
+           negrito_prefixo="Live2U: ")
+    with pytest.raises(AssertionError) as excinfo:
+        validar(doc)
+    assert "Sys3" in str(excinfo.value) or "externo" in str(excinfo.value)
+
+
+def test_honestidade_apontamento_deve_declarar_divida_falha():
+    """Bullet de Apontamento deve declarar dívida/pendências."""
+    doc = _doc_valido_minimo()
+    h2(doc, "Experiência")
+    # Descrição que omite totalmente a menção a dívida ou pendências.
+    bullet(doc, "Modelei arquitetura multi-tenant totalmente concluída.",
+           negrito_prefixo="Apontamento: ")
+    with pytest.raises(AssertionError) as excinfo:
+        validar(doc)
+    assert "dívida" in str(excinfo.value).lower() or "pendente" in str(excinfo.value).lower()

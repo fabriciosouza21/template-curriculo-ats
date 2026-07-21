@@ -128,7 +128,10 @@ def validar(
     # 5. Verbos de ação no passado em bullets de experiência.
     _checar_verbos_experiencia(doc)
 
-    # 6. Consistência com manifesto (se fornecido).
+    # 6. Regras de honestidade (defesa em profundidade no DOCX).
+    _checar_regras_honestidade(doc)
+
+    # 7. Consistência com manifesto (se fornecido).
     if manifesto is not None:
         _checar_manifesto(texto, manifesto)
 
@@ -252,6 +255,47 @@ def _checar_verbo_no_bullet(texto_p: str) -> None:
         f"{sorted(VERBOS_ACEITOS)}. Início encontrado: {primeira!r}. "
         f"Texto do bullet: {texto_p[:80]!r}."
     )
+
+
+def _checar_regras_honestidade(doc: _DocumentType) -> None:
+    """Regras de honestidade aplicadas ao Document final.
+
+    Defesa em profundidade: as mesmas regras já são checadas em
+    data/validate.py sobre o YAML. Aqui garantem que o render não
+    injetou texto de outra fonte (template fixo, hardcode, etc.) que
+    viole as regras.
+
+    Regras:
+    1. jOOQ só pode aparecer no bullet de Live2U (não em Consol ou
+       Apontamento).
+    2. Bullet de Live2U deve mencionar "Sys3" ou "externo" (backend IA
+       externo).
+    3. Bullet de Apontamento deve mencionar "pendente" ou "dívida"
+       (dívida documentada).
+    """
+    for p in doc.paragraphs:
+        texto = p.text
+        # Identifica bullet de experiência por prefixo de produto.
+        if texto.startswith("Consol:") or texto.startswith("Apontamento:"):
+            assert "jOOQ" not in texto, (
+                f"jOOQ não pode aparecer no bullet de "
+                f"{texto.split(':')[0]} (regra de honestidade: só Live2U). "
+                f"Texto: {texto[:80]!r}."
+            )
+        elif texto.startswith("Live2U:"):
+            lower = texto.lower()
+            assert "sys3" in lower or "externo" in lower, (
+                "Bullet de Live2U deve declarar que o backend de IA é "
+                "externo (menção a Sys3 ou 'externo'). "
+                f"Texto: {texto[:80]!r}."
+            )
+        if texto.startswith("Apontamento:"):
+            lower = texto.lower()
+            assert "pendente" in lower or "dívida" in lower, (
+                "Bullet de Apontamento deve declarar pendências ou "
+                "dívida documentada. "
+                f"Texto: {texto[:80]!r}."
+            )
 
 
 def _checar_manifesto(texto: str, manifesto: dict) -> None:
