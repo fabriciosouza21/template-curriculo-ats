@@ -257,7 +257,11 @@ def _render_experiencia(doc: Document, dados: dict, manifesto_exp: dict,
             negrito_prefixo=f"{produto}: ",
         )
 
-    # Transversais: sem prefixo (padrão do legado).
+    # Transversais: sem prefixo, sempre. Padronização escolhida para o
+    # gerador novo (ATS-friendly). O legado era inconsistente: iUsecase
+    # sem prefixo, itexto com prefixo "Transversais: ". Optamos pelo
+    # padrão sem prefixo porque as descrições das transversais já são
+    # atividades completas (não precisam de rótulo).
     for indice in manifesto_exp.get("transversais", []):
         texto = _selecionar_transversal(exp, indice)
         bullet(doc, texto)

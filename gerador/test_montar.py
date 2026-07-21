@@ -214,6 +214,33 @@ def test_manifesto_minimo_renderiza_documento_com_nome_e_produto(tmp_path):
     assert "Produto Alpha" in texto
 
 
+def test_transversal_renderiza_texto_sem_prefixo(tmp_path):
+    """Transversais aparecem no Document, sem prefixo 'Transversais:'.
+
+    Padronização do gerador novo: transversais sempre sem prefixo (ATS-friendly).
+    As descrições já são atividades completas começando com verbo no passado.
+    """
+    data_dir = _escrever_data_dir(tmp_path)
+    manifesto = _manifesto_minimo(
+        experiencias=[
+            {
+                "arquivo": "experiencias/empresa_a.yml",
+                "cases": ["Produto Alpha"],
+                "transversais": [0],
+            }
+        ]
+    )
+    manifesto_path = _escrever_manifesto(tmp_path, manifesto)
+
+    doc = montar(manifesto_path, data_dir=data_dir)
+    texto = _texto_doc(doc)
+
+    # Texto do transversal aparece (literal do fixture empresa_a.yml).
+    assert "Mantive CI/CD com GitLab e Docker." in texto
+    # Padronização sem prefixo "Transversais:".
+    assert "Transversais:" not in texto
+
+
 # ---- Teste 2: seleção de cases respeita o manifesto ----
 
 def test_selecao_de_cases_filtra_o_que_o_manifesto_pediu(tmp_path):
@@ -386,8 +413,9 @@ def test_indice_transversal_fora_de_range_levanta_indexerror(tmp_path):
     with pytest.raises(IndexError) as excinfo:
         montar(manifesto_path, data_dir=data_dir)
 
-    # Mensagem deve mencionar o índice ou a empresa.
-    assert "5" in str(excinfo.value) or "transversal" in str(excinfo.value).lower()
+    # Mensagem deve mencionar o índice E a palavra transversal.
+    assert "5" in str(excinfo.value)
+    assert "transversal" in str(excinfo.value).lower()
 
 
 # ---- Testes de formato/canônicos ----
