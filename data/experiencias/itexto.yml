@@ -1,0 +1,77 @@
+# Passagem pela itexto (Out 2021 - Abr 2025). Sete domínios de negócio.
+empresa: itexto Consultoria em Tecnologia
+cargo: Programador                              # cargo CTPS (formal, CBO 3171-10)
+cargo_apresentacao: Engenheiro de Software Pleno # função real exercida (full stack)
+periodo:
+  inicio: 2021-10
+  fim: 2025-04
+local: Belo Horizonte, MG
+contexto: >
+  Atuação no ciclo completo de software em sete domínios de negócio
+  (seis em Java e um em Go).
+
+cases:
+  - produto: Agronegócio
+    dominio: crédito rural e barter agrícola
+    descricao: >
+      Construí plataforma Ativus de crédito rural e análise de crédito
+      em Spring Boot 2.3, Java 11, MySQL, Flyway e Angular 13, com
+      gateway de CNDs governamentais em Apache Camel e SQS. Implementei
+      sistema de barter agrícola da Corteva em Spring Cloud (Eureka,
+      Feign), Vue 2, PostgreSQL com Hibernate Envers e Keycloak OIDC.
+
+  - produto: Fintech
+    dominio: tokenização de ativos
+    descricao: >
+      Implementei tokenizadora de ativos (QR-Capital) como cliente
+      GraphQL de API externa (graphql-java-generator + WebClient), com
+      Spring Data JPA e Hibernate Envers sobre PostgreSQL, OAuth2/Keycloak,
+      Spring Boot 2.7 e Java 16.
+
+  - produto: Logística
+    dominio: marketplace de frete
+    descricao: >
+      Desenvolvi marketplace de frete Flex-Frete com cotação,
+      contratação, notas fiscais e mensageria em Camel e SQS. Spring
+      Boot 2.5, PostgreSQL, Redis, React 17.
+
+  - produto: Gamificação corporativa
+    dominio: bem-estar corporativo
+    descricao: >
+      Estruturei monorepo Weex (bwell) com múltiplos microsserviços,
+      processamento assíncrono em Camel e SQS, geração de certificados
+      em AWS Lambda e IaC com Terraform.
+
+  - produto: Automotivo/industrial
+    dominio: documentação técnica para montadoras
+    descricao: >
+      Mantive plataforma Wirelist (Starcom) de documentação técnica
+      para montadoras. Spring Boot 2.2, MySQL, Elastic Beanstalk,
+      Angular 15.
+
+  - produto: Compliance
+    dominio: gestão documental com assinatura digital
+    descricao: >
+      Desenvolvi sistema RRZ de gestão documental com assinatura,
+      endosso e auditoria (Hibernate Envers). Spring Boot 3, Java 17,
+      Angular 16.
+
+  - produto: Educação
+    dominio: app de quizzes
+    descricao: >
+      Construí app de quizzes Wikle em Go com Gin (backend) e React
+      Native/Expo (frontend).
+
+transversais:
+  - >
+    Participei do ciclo completo de 7 sistemas em 3,5 anos: coleta de
+    requisitos com o cliente, contratos de API em Swagger, UML das
+    classes de domínio, desenvolvimento backend (Java/Spring e Go) e
+    frontend (Angular, React, Vue), integrações com APIs externas e S3,
+    Apache POI para planilhas, SQL nativo quando JPQL não resolvia,
+    testes com JUnit e Mockito, deploy com Docker e Portainer, suporte
+    a aplicações em produção com diagnóstico de defeitos.
+  - >
+    Colaborei em revisão de código com criticidade e pensamento crítico
+    durante todo o processo, reportando dúvidas e soluções de
+    comportamentos não mapeados ou desafios encontrados.
