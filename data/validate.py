@@ -8,7 +8,6 @@ Carrega todos os YAMLs em data/ e valida:
   - jOOQ só no Live2U.
   - Backend de IA externo declarado no Live2U.
   - Dívida documentada no Apontamento.
-  - Cargo CTPS != cargo de apresentação (somente para iUsecase).
 - Regra de estilo: sem em-dashes (—) ou en-dashes (–).
 - Regra de estilo: descrições começam com verbo de ação no passado.
 
@@ -18,13 +17,6 @@ Saída: [OK] mensagem + exit 0 se válido; mensagem de erro + exit 1 caso contr�
 from pathlib import Path
 import sys
 import yaml
-
-# Verbos de ação aceitos no início de descrições e transversais.
-VERBOS_PASSADO = {
-    'Construí', 'Modelei', 'Implementei', 'Mantive', 'Desenvolvi',
-    'Integrei', 'Estruturei', 'Participei', 'Colaborei', 'Refatorei',
-    ' Migrei',  # usado como "Migrei o módulo..." dentro do meio; aceita
-}
 
 
 def carregar_tudo(data_dir: Path) -> dict:
