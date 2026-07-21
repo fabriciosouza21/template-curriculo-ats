@@ -8,7 +8,7 @@ Carrega todos os YAMLs em data/ e valida:
   - jOOQ só no Live2U.
   - Backend de IA externo declarado no Live2U.
   - Dívida documentada no Apontamento.
-- Regra de estilo: sem em-dashes (—) ou en-dashes (–).
+- Regra de estilo: sem em-dashes (U+2014) ou en-dashes (U+2013).
 - Regra de estilo: descrições começam com verbo de ação no passado.
 
 Uso: python3 data/validate.py
@@ -95,7 +95,7 @@ def validar_divida_apontamento(dados: dict) -> None:
 
 
 def validar_sem_em_dash(dados: dict) -> None:
-    """Nenhuma string pode conter em-dash (—) ou en-dash (–)."""
+    """Nenhuma string pode conter em-dash (U+2014) ou en-dash (U+2013)."""
     import json
     blob = json.dumps(dados, ensure_ascii=False)
     assert '—' not in blob, "em-dash (—) encontrado"
