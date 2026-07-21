@@ -66,10 +66,15 @@ def validar_campos_obrigatorios(dados: dict) -> None:
 
 
 def validar_jooq_so_no_live2u(dados: dict) -> None:
-    """jOOQ só pode aparecer em habilidades e no case Live2U."""
+    """jOOQ só pode aparecer em habilidades e na descrição do case Live2U.
+
+    Regra do spec seção 6.1: 'na descrição do case só pode aparecer em
+    Live2U'. Checagem por exclusão: qualquer case cujo produto != 'Live2U'
+    não pode ter jOOQ. Cobre cases novos sem precisar atualizar lista.
+    """
     for exp in dados['experiencias']:
         for case in exp['cases']:
-            if case['produto'] in ('Consol', 'Apontamento'):
+            if case['produto'] != 'Live2U':
                 assert 'jOOQ' not in case['descricao'], \
                     f"jOOQ proibido no case {case['produto']} (só Live2U)"
 

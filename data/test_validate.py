@@ -44,6 +44,27 @@ def test_validar_jooq_so_no_live2u():
     validar_jooq_so_no_live2u(dados)  # não levanta
 
 
+def test_validar_jooq_rejeita_case_nao_live2u():
+    """jOOQ em qualquer case que não seja Live2U deve falhar.
+
+    Regra do spec seção 6.1: 'na descrição do case só pode aparecer em
+    Live2U'. A checagem deve ser por exclusão (qualquer produto != Live2U),
+    não por lista literal de Consol/Apontamento, para cobrir cases novos.
+    """
+    dados = {
+        'experiencias': [
+            {
+                'empresa': 'X',
+                'cases': [
+                    {'produto': 'Foo', 'descricao': 'usei jOOQ no projeto'},
+                ],
+            },
+        ],
+    }
+    with pytest.raises(AssertionError):
+        validar_jooq_so_no_live2u(dados)
+
+
 def test_validar_backend_ia_externo_live2u():
     dados = carregar_tudo(DATA_DIR)
     validar_backend_ia_externo_live2u(dados)  # não levanta
