@@ -73,7 +73,7 @@ Executa o CLI, gera DOCX, valida, confirma 2 páginas e conteúdo esperado.
 2. `gerador/validar_docx.py` aprova o DOCX.
 3. `python3 -m pytest gerador/` reporta todos testes passando.
 4. `python3 data/validate.py` ainda passa.
-5. DOCX Marlabs tem 2 páginas, 6 cases, 2 transversais, 9 buckets, 7 cursos, idiomas, sem IA.
+5. DOCX Marlabs tem 2-3 páginas, 6 cases, 3 transversais (2 iusecase + 1 itexto), 9 buckets, 7 cursos, idiomas, sem IA. (Original dizia 2 páginas/2 transversais; ajustado após implementação para refletir o volume real do conteúdo selecionado.)
 6. Conteúdo fiel aos YAMLs.
 
 ## Fora de escopo
