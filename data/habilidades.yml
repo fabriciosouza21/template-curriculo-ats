@@ -1,0 +1,98 @@
+# Buckets de habilidades. Cada bucket tem um rótulo e uma lista de skills
+# como strings simples. O agente pode reordenar buckets e reescrever o
+# agrupamento conforme a vaga.
+buckets:
+  - rotulo: Backend (JVM)
+    itens:
+      - "Java (11/16/17/21)"
+      - "Spring Boot (2.x e 3.x)"
+      - "Spring Data JPA"
+      - "Spring Security"
+      - "Spring Cloud (Eureka, Feign)"
+      - "Spring WebFlux"
+
+  - rotulo: Persistência
+    itens:
+      - "PostgreSQL"
+      - "MySQL"
+      - "Hibernate/JPA"
+      - "Hibernate Envers (auditoria)"
+      - "hibernate-spatial + JTS (geometria)"
+      - "Flyway (migrations)"
+      - "QueryDSL (queries dinâmicas)"
+      - "jOOQ"
+      - "SQL nativo"
+
+  - rotulo: Mensageria e Integração
+    itens:
+      - "Apache Camel"
+      - "AWS SQS"
+      - "Redis (cache e pub/sub)"
+      - "Valkey"
+      - "WebSocket (STOMP/SockJS)"
+
+  - rotulo: Frontend
+    itens:
+      - "Angular (7/13/15/16/17/20)"
+      - "React (17/18/19)"
+      - "Vue 2"
+      - "React Native/Expo"
+      - "Flutter"
+      - "Vite"
+      - "Material/PrimeNG/MUI"
+      - "MapLibre/Leaflet"
+
+  - rotulo: Auth
+    itens:
+      - "JWT (jjwt)"
+      - "Keycloak (OAuth2/OIDC)"
+      - "AWS Cognito"
+
+  - rotulo: Cloud/DevOps
+    itens:
+      - "AWS (S3, SQS, SES, ECS, ECR, CloudFront, Cognito, Lambda, Elastic Beanstalk, RDS)"
+      - "Cloudinary"
+      - "Docker"
+      - "Portainer"
+      - "Terraform"
+      - "GitLab CI/CD"
+      - "Jenkins"
+
+  - rotulo: Testes
+    itens:
+      - "JUnit"
+      - "Mockito"
+      - "AssertJ"
+      - "Testcontainers"
+      - "WireMock"
+      - "Cypress (E2E)"
+      - "Karma/Jasmine"
+      - "Vitest"
+      - "Jest"
+
+  - rotulo: APIs e Contratos
+    itens:
+      - "REST"
+      - "OpenAPI/Swagger"
+      - "GraphQL (cliente via graphql-java-generator)"
+      - "SOAP/WSDL"
+
+  - rotulo: Documentos/Dados
+    itens:
+      - "Apache POI (Excel)"
+      - "iText/PDFBox/html2pdf (PDF)"
+      - "OpenCSV"
+      - "Commons CSV"
+      - "Velocity (templates)"
+
+  - rotulo: Observabilidade e metodologia
+    itens:
+      - "Sentry"
+      - "Logstash"
+      - "OpenTelemetry"
+      - "Kanban (Redmine, ClickUp)"
+
+  - rotulo: IA aplicada
+    itens:
+      - "Benchmark de modelos de embedding para RAG (MRR, Recall@K, nDCG@10)"
+      - "Engenharia agentic (Context Engineering, Skills, MCPs, Subagents)"
