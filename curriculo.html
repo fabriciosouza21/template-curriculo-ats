@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  :root{
+    --navy:#2C4A73;
+    --sidebar:#3D5B8A;
+    --teal:#6FA3C7;
+    --ink:#33373d;
+    --muted:#6b7078;
+    --line:#dbe0e6;
+    --sw:31%;
+  }
+  html,body{ font-family:'Carlito','Calibri','Liberation Sans',Arial,sans-serif; color:var(--ink); font-size:10.2px; line-height:1.42; }
+
+  .band{ position:fixed; top:0; left:0; width:var(--sw); height:100%; background:var(--sidebar); z-index:0; }
+
+  .side{ position:absolute; top:0; left:0; width:var(--sw); padding:13mm 20px 0; color:#eef2f7; z-index:2; }
+  .avatar{ width:122px; height:122px; border-radius:50%; object-fit:cover; display:block; margin:2px auto 18px; border:3px solid rgba(255,255,255,.35); }
+  .sh{ font-size:11.5px; font-weight:700; letter-spacing:2.2px; color:#fff; text-transform:uppercase; margin:16px 0 8px; }
+  .srule{ height:2px; width:30px; background:var(--teal); margin-bottom:9px; }
+
+  .ci{ display:flex; gap:8px; align-items:flex-start; margin-bottom:8px; font-size:9.4px; line-height:1.38; word-break:break-word; }
+  .ci .ic{ flex:0 0 15px; height:15px; color:var(--teal); margin-top:1px; }
+  .ci span,.ci a{ color:#e7edf4; text-decoration:none; }
+
+  .kv{ font-size:9.5px; color:#eef2f7; line-height:1.5; margin-bottom:4px; }
+  .kv b{ color:#fff; font-weight:600; }
+  .stack{ font-size:9.5px; color:#eef2f7; line-height:1.75; }
+
+  .main{ margin-left:var(--sw); padding:13mm 30px 13mm 26px; position:relative; z-index:1;
+         -webkit-box-decoration-break:clone; box-decoration-break:clone; }
+  .name{ font-size:26px; font-weight:800; letter-spacing:.3px; color:var(--navy); line-height:1.04; }
+  .nrule{ height:3px; width:64px; background:var(--navy); margin:8px 0 6px; }
+  .role{ font-size:11.5px; letter-spacing:3px; color:var(--teal); font-weight:600; text-transform:uppercase; }
+  .roles-sub{ font-size:9.5px; color:var(--muted); letter-spacing:.3px; margin-top:3px; }
+
+  .sech{ font-size:11.5px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase; color:var(--navy); margin:15px 0 3px; }
+  .secrule{ height:1.4px; background:var(--line); margin-bottom:7px; }
+
+  .lead{ font-size:10.1px; line-height:1.5; text-align:justify; color:#3a3f46; }
+
+  .skrow{ font-size:9.6px; line-height:1.5; margin-bottom:3px; }
+  .skrow b{ color:var(--navy); font-weight:700; }
+
+  .job{ margin-bottom:9px; }
+  .job-title{ font-size:11.2px; font-weight:700; color:#20242b; }
+  .job-meta{ font-size:9.2px; color:var(--muted); margin:1px 0 4px; }
+  .job-meta b{ color:var(--sidebar); font-weight:600; }
+  .job-intro{ font-size:9.6px; color:#4a4f56; font-style:italic; margin-bottom:5px; }
+
+  .prod{ font-size:9.7px; line-height:1.46; margin-bottom:5px; padding-left:11px; position:relative; text-align:justify; }
+  .prod::before{ content:''; position:absolute; left:0; top:5px; width:4px; height:4px; border-radius:50%; background:var(--teal); }
+  .prod b{ color:#20242b; font-weight:700; }
+  .sublabel{ font-size:8.9px; font-weight:700; letter-spacing:.6px; color:var(--sidebar); text-transform:uppercase; margin:5px 0 3px; }
+
+  ul.bul{ list-style:none; }
+  ul.bul li{ position:relative; padding-left:11px; margin-bottom:3px; font-size:9.6px; line-height:1.45; text-align:justify; }
+  ul.bul li::before{ content:''; position:absolute; left:0; top:5px; width:4px; height:4px; border-radius:50%; background:var(--teal); }
+
+  .edu-title{ font-size:10.8px; font-weight:700; color:#20242b; }
+  .edu-meta{ font-size:9.2px; color:var(--muted); margin:1px 0 3px; }
+
+  .ccat{ font-size:9.1px; font-weight:700; letter-spacing:.7px; color:var(--sidebar); text-transform:uppercase; margin:6px 0 2px; }
+  .clist{ font-size:9.5px; line-height:1.5; color:#3a3f46; }
+  .clist b{ color:#20242b; font-weight:600; }
+
+  .keep{ break-inside:avoid; }
+
+  .avatar-initials{
+    width:122px; height:122px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    margin:2px auto 18px; border:3px solid rgba(255,255,255,.35);
+    background:linear-gradient(135deg,#6FA3C7,#2C4A73);
+    color:#fff; font-size:42px; font-weight:700; letter-spacing:1px;
+  }
+</style>
+</head>
+<body>
+  <div class="band"></div>
+
+  <aside class="side">
+    <div class="avatar-initials">FM</div>
+
+    <div class="sh">Contato</div><div class="srule"></div>
+    <div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Cidade, UF (remoto)</span></div>
+    <div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg><a>candidato.exemplo@dominio.com</a></div>
+    <div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 015 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.4 4.6-4.6 4.9.3.3.6.9.6 1.9v2.8c0 .3.2.6.7.5A10 10 0 0012 2z"/></svg><a>github.com/seu-usuario</a></div>
+    <div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zM8.3 18.3H5.7V9.8h2.6v8.5zM7 8.6a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm11.3 9.7h-2.6v-4.1c0-1-.4-1.7-1.3-1.7-.7 0-1.1.5-1.3 1-.1.2-.1.4-.1.7v4.1h-2.6V9.8h2.6v1.1c.3-.5 1-1.3 2.4-1.3 1.7 0 3 1.1 3 3.6v5.1z"/></svg><a>linkedin.com/in/seu-perfil</a></div>
+    <div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg><a>seu-portfolio.com/portfolio/seu-usuario</a></div>
+
+    <div class="sh">Idiomas</div><div class="srule"></div>
+    <div class="kv"><b>Português:</b> nativo</div>
+    <div class="kv"><b>Inglês:</b> leitura técnica</div>
+
+    <div class="sh">Stack Principal</div><div class="srule"></div>
+    <div class="stack">
+      Java (11 a 21) · Spring Boot (2.x e 3.x)<br>
+      Clean Architecture · Spring Data JPA<br>
+      PostgreSQL · MySQL · Apache Camel<br>
+      AWS (ECS, S3, SQS, Lambda) · Docker<br>
+      Angular · React · Vue<br>
+      Testcontainers · GitLab CI/CD
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="name">CANDIDATO NOME COMPLETO</div>
+    <div class="nrule"></div>
+    <div class="role">Engenheiro de Software Pleno</div>
+    <div class="roles-sub">Desenvolvedor Backend (Java / Spring) · Full Stack</div>
+
+    <section>
+      <div class="sech">Perfil</div><div class="secrule"></div>
+      <p class="lead">Engenheiro de Software Pleno com quase 5 anos de experiência em desenvolvimento Full Stack, com passagem por sete domínios de negócio distintos (agronegócio, fintech, logística, automotivo, gamificação corporativa, compliance e educação). Foco em Java/Spring, design de código, arquitetura limpa e aplicação crítica de IA no desenvolvimento. Bacharel em Ciência da Computação pela UFPA (2024).</p>
+    </section>
+
+    <section>
+      <div class="sech">Habilidades Técnicas</div><div class="secrule"></div>
+      <div class="skrow"><b>Backend (JVM):</b> Java (11/16/17/21), Spring Boot (2.x e 3.x), Spring Data JPA, Spring Security, Spring Cloud (Eureka, Feign), Spring WebFlux.</div>
+      <div class="skrow"><b>Persistência:</b> PostgreSQL, MySQL, Hibernate/JPA, Hibernate Envers (auditoria), hibernate-spatial + JTS (geometria), Flyway, QueryDSL, jOOQ, SQL nativo.</div>
+      <div class="skrow"><b>Mensageria e Integração:</b> Apache Camel, AWS SQS, Redis (cache e pub/sub), Valkey, WebSocket (STOMP/SockJS).</div>
+      <div class="skrow"><b>Frontend:</b> Angular (7 a 20), React (17/18/19), Vue 2, React Native/Expo, Flutter, Vite, Material/PrimeNG/MUI, MapLibre/Leaflet.</div>
+      <div class="skrow"><b>Auth:</b> JWT (jjwt), Keycloak (OAuth2/OIDC), AWS Cognito.</div>
+      <div class="skrow"><b>Cloud e DevOps:</b> AWS (S3, SQS, SES, ECS, ECR, CloudFront, Cognito, Lambda, Elastic Beanstalk, RDS), Cloudinary, Docker, Portainer, Terraform, GitLab CI/CD, Jenkins.</div>
+      <div class="skrow"><b>Testes:</b> JUnit, Mockito, AssertJ, Testcontainers, WireMock, Cypress (E2E), Karma/Jasmine, Vitest, Jest.</div>
+      <div class="skrow"><b>APIs e Contratos:</b> REST, OpenAPI/Swagger, GraphQL (cliente via graphql-java-generator), SOAP/WSDL.</div>
+      <div class="skrow"><b>Documentos e Dados:</b> Apache POI (Excel), iText/PDFBox/html2pdf (PDF), OpenCSV, Commons CSV, Velocity.</div>
+      <div class="skrow"><b>Observabilidade:</b> Sentry, Logstash, OpenTelemetry. &nbsp;<b>Ferramentas:</b> Bruno, Postman, Insomnia. &nbsp;<b>Metodologia:</b> Kanban (Redmine, ClickUp).</div>
+    </section>
+
+    <section>
+      <div class="sech">Experiência</div><div class="secrule"></div>
+
+      <div class="job">
+        <div class="job-title">Engenheiro de Software Pleno</div>
+        <div class="job-meta"><b>iUsecase Tecnologia e Inovação</b> · Belo Horizonte, MG (remoto) · Jul 2025 – Atual</div>
+        <div class="job-intro">Atuação em três produtos com foco em design de código e arquitetura limpa.</div>
+        <div class="prod"><b>Consol</b> (fiscalização e vistoria de malha rodoviária): backend Spring Boot 3.2 com Java 21 em Clean Architecture com CQRS-lite (leitura por QueryService com @Cacheable seletivo, escrita por Commands via ports); Spring Data JPA com hibernate-spatial/JTS para geometria rodoviária. Sincronização offline-first do mobile com lock distribuído em Redis, detecção de conflito por timestamp e fallback degradado (consol-sync-api em Node/Express, WebSocket e Valkey). Frontend React 19 (Vite, React Compiler) com MapLibre, auth Cognito e mobile em Flutter.</div>
+        <div class="prod"><b>Apontamento</b> (timesheet multi-tenant): arquitetura multi-tenant database-driven com policies configuráveis em banco (policy, policy_rule, tenant_policy) e resolvers @Cacheable em Caffeine. Condução da refatoração para remover condicionais de cliente do core, migrando o módulo de timelogging para o modelo multi-tenant. Spring Boot 3.2 com Java 17, QueryDSL para queries dinâmicas, Angular 17.</div>
+        <div class="prod"><b>Live2U</b> (clínicas e saúde): orquestração no frontend Angular de serviço externo de RAG sobre exames (upload de PDF, jobs assíncronos com polling e respostas com citações vinculadas às observações de cada exame). Backend Spring Boot 3.2 com Java 21, jOOQ, integrações com serviços de saúde e upload de imagens via Cloudinary.</div>
+        <div class="sublabel">Atividades transversais</div>
+        <ul class="bul">
+          <li>Evolução de features backend em Spring Boot 3.2 (Java 17/21) com Clean Architecture e separação por camadas, além de revisão de código no time.</li>
+          <li>CI/CD no GitLab com deploy de imagens ARM64 para ECS via ECR (backend) e S3 com CloudFront (frontend).</li>
+          <li>Cultura de testes com Testcontainers, AssertJ e WireMock; suporte a produção com diagnóstico de defeitos, correção de bugs e evolução de funcionalidades.</li>
+          <li>Participação em decisões de arquitetura: abordagens multi-tenant, escolha entre JPA, QueryDSL e jOOQ por produto e modelagem de domínios complexos (inspeções rodoviárias, exames de saúde, apontamento de horas).</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-title">Programador Full Stack</div>
+        <div class="job-meta"><b>itexto Consultoria em Tecnologia</b> · Belo Horizonte, MG (remoto) · Out 2021 – Abr 2025</div>
+        <div class="job-intro">Ciclo completo de software em sete domínios de negócio (seis em Java, um em Go).</div>
+        <div class="prod"><b>Agronegócio:</b> plataforma Ativus de crédito rural e análise de crédito (Spring Boot 2.3, Java 11, MySQL, Flyway, Angular 13), com gateway de CNDs governamentais orquestrado em Apache Camel e SQS; sistema de barter agrícola da Corteva (Spring Boot 2.5, Spring Cloud com Eureka e Feign, Vue 2, PostgreSQL com Hibernate Envers, Keycloak OIDC).</div>
+        <div class="prod"><b>Fintech:</b> tokenizadora de ativos (QR-Capital) como cliente GraphQL de API externa (graphql-java-generator, WebClient), Spring Data JPA com Hibernate Envers sobre PostgreSQL, OAuth2/Keycloak (Spring Boot 2.7, Java 16).</div>
+        <div class="prod"><b>Logística:</b> marketplace de frete Flex-Frete com cotação, contratação, notas fiscais e mensageria em Camel e SQS (Spring Boot 2.5, PostgreSQL, Redis, React 17).</div>
+        <div class="prod"><b>Gamificação corporativa:</b> monorepo Weex (bwell) com múltiplos microsserviços, processamento assíncrono em Camel e SQS, geração de certificados em AWS Lambda e IaC com Terraform.</div>
+        <div class="prod"><b>Automotivo:</b> plataforma Wirelist (Starcom) de documentação técnica para montadoras (Spring Boot 2.2, MySQL, Elastic Beanstalk, Angular 15).</div>
+        <div class="prod"><b>Compliance:</b> sistema RRZ de gestão documental com assinatura, endosso e auditoria via Hibernate Envers (Spring Boot 3, Java 17, Angular 16).</div>
+        <div class="prod"><b>Educação:</b> app de quizzes Wikle em Go com Gin no backend e React Native/Expo no frontend.</div>
+        <div class="sublabel">Atividades transversais</div>
+        <ul class="bul">
+          <li>Participação em todas as etapas: coleta de requisitos com o cliente, planejamento e criação de tarefas, contratos de API em Swagger e modelagem UML das classes de domínio.</li>
+          <li>Backend em Java/Spring Boot e Go, frontend em Angular, React e Vue, com migrations SQL (PostgreSQL e MySQL), TDD e Clean Code.</li>
+          <li>Integrações com APIs externas e S3, manipulação de planilhas com Apache POI e SQL nativo quando o JPQL não resolvia.</li>
+          <li>Testes com JUnit e Mockito, deploy com Docker e Portainer, revisão de código criteriosa e suporte a produção com diagnóstico de defeitos.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="keep">
+      <div class="sech">IA Aplicada</div><div class="secrule"></div>
+      <ul class="bul">
+        <li>Benchmark de modelos de embedding para RAG (PT/EN) com corpus próprio (40 queries parafraseadas, 45 documentos com hard negatives intencionais), qrels e métricas de retrieval (MRR, Recall@K, nDCG@10) em múltiplas execuções para controlar cold start. Comparação de 7 modelos (multilingual-e5 base e small, qwen3-embedding, mpnet, MiniLM, jina-code via llama.cpp, Ollama), testando instruction prefixes e latência; conclusão documentada: e5-small superou o qwen3 em MRR com 2,7x menos espaço e 14x mais velocidade.</li>
+        <li>Engenharia agentic: estudo comparativo entre revisão solo e plano/execução com subagents, com métricas (testes passando, iterações, critérios do desafio) e aplicação de Context Engineering (Spec Driven, RPI, Rules, Skills, MCPs) e padrões de Subagents e Multi-Agents.</li>
+        <li>Prática diária de desenvolvimento assistido por IA com revisão crítica: loop de feedback curto, TDD científico (teste falhando pelo motivo certo, fix mínimo, revert para reconfirmar o red, baby steps) e revisão humana do diff antes do commit.</li>
+      </ul>
+    </section>
+
+    <section class="keep">
+      <div class="sech">Formação</div><div class="secrule"></div>
+      <div class="edu-title">Bacharelado em Ciência da Computação</div>
+      <div class="edu-meta">Universidade Federal do Pará (UFPA) · 2017 – 2024</div>
+      <ul class="bul">
+        <li>Colação de grau em março de 2024, concluído em paralelo à atuação profissional iniciada em 2021. Ênfase em automação de processos, protocolos de comunicação, modelagem de dados e desenvolvimento e implantação de software.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="sech">Cursos e Formação Complementar</div><div class="secrule"></div>
+      <div class="ccat">Java</div>
+      <div class="clist">Java Completo (POO), Udemy · Java Collections, Alura · Modern Java in Action, Manning · Java Reactive / Project Reactor, Udemy · DSCatalog (REST com Spring), DevSuperior · Formação Java (JPA, Spring, JSF), Alura · Effective Java (Joshua Bloch).</div>
+      <div class="ccat">Spring e Ecossistema</div>
+      <div class="clist">Microservices com Spring Cloud, Spring Boot e Docker (Feign, Eureka, API Gateway, Circuit Breaker, Resilience4j, Config Server, LoadBalancer), Udemy · Spring JWT Security · Mastering Integration: Camel + Spring Boot · OAuth 2.0, Casa do Código.</div>
+      <div class="ccat">Arquitetura e Boas Práticas</div>
+      <div class="clist">Jornada Dev Eficiente (DDD, system design, escalabilidade, CDD, resiliência, testes), Dev Eficiente · Desbravando SOLID em Java Moderno · Padrões de Projeto (GoF) · Apache Kafka e Spring Boot · Tech Leads Club (Context Engineering, Skills, MCPs, Subagents e Multi-Agents).</div>
+      <div class="ccat">Frontend e Node</div>
+      <div class="clist">Desenvolvedor Frontend (Vue, Angular, React, Svelte), IGTI/XP · Desenvolvedor Node.js (Express, GraphQL, Jest), IGTI/XP · Vue.js, Alura · Vue Mastery (Vue 3, Composition API, Pinia, Vite, Vitest) · Angular (Trilha Alura), Alura.</div>
+      <div class="ccat">Demais</div>
+      <div class="clist">Docker para Desenvolvedores, Udemy · Análise de Banco de Dados (PostgreSQL, SQL Server, Oracle), IGTI/XP · Go (Golang): Explorando a Linguagem do Google, Udemy · Inglês (curso próprio).</div>
+    </section>
+
+    <section>
+      <div class="sech">Estudos Complementares</div><div class="secrule"></div>
+      <div class="ccat">DDD e Arquitetura de Software</div>
+      <div class="clist">DDD estratégico e tático (aggregates, value objects, domain services, use cases, rich domain modeling), arquitetura modular, feature slice vs vertical slice, Outbox Pattern, C4 Model, design docs e métricas de código (coesão e acoplamento). Reflexão sobre limites do Transaction Script e migração para DDD tático.</div>
+      <div class="ccat">Sistemas Distribuídos e Mensageria</div>
+      <div class="clist">Fundamentos de Kafka (tópicos, partições, consumer groups, offsets, retenção de log), comparativo com RabbitMQ, AWS SQS/SNS e Redis Streams, além de fundamentos de escalabilidade e performance em sistemas distribuídos.</div>
+      <div class="ccat">Backend Java (aprofundamento)</div>
+      <div class="clist">Hibernate, Apache Camel (rotas e integrações), SOAP com Feign (integração legada), GraphQL em Java (schema, servidor e cliente) e evolução das versões da plataforma Java.</div>
+      <div class="ccat">Projetos e Escritos Próprios</div>
+      <div class="clist">App próprio de revisão espaçada (algoritmo SM-2 em Bun) com decks sobre DDD, Outbox Pattern e Spec-Driven Development; estudo comparativo Solo vs Subagents em code review com métricas; ensaios sobre uso crítico de IA no desenvolvimento (notas em Notion).</div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Outputs regeneráveis
+*.docx
+*.pdf
+
+# Cache Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Scratch SDD
+.superpowers/
