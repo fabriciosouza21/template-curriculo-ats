@@ -1,0 +1,13 @@
+# Formação acadêmica.
+formacao:
+  - curso: Bacharelado em Ciência da Computação
+    instituicao: Universidade Federal do Pará (UFPA)
+    periodo:
+      inicio: 2017-04
+      fim: 2024-01
+    detalhes: >
+      Conclusão em janeiro de 2024, colação de grau em março de 2024.
+      Diploma emitido em julho de 2024 (Belém/PA), registro nº 3.209,
+      Livro ICEN-01/24, Folha 29. Concluído em paralelo à atuação
+      profissional iniciada em 2021 e ao período pandêmico, o que
+      estendeu o ciclo total.
