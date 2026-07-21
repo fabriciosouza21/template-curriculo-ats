@@ -53,7 +53,11 @@ def validar_sintaxe(dados: dict) -> None:
 
 
 def validar_campos_obrigatorios(dados: dict) -> None:
-    """Confere campos obrigatórios em cada experiência."""
+    """Confere campos obrigatórios em cada experiência e perfis."""
+    # Perfis: pelo menos generico e fullstack devem existir.
+    perfis = dados['perfil'].get('perfis', {})
+    for chave in ('generico', 'fullstack'):
+        assert chave in perfis, f"perfil '{chave}' ausente em perfil.yml"
     for exp in dados['experiencias']:
         for campo in ('empresa', 'cargo', 'periodo', 'contexto', 'cases'):
             assert campo in exp, f"experiência sem campo obrigatório '{campo}': {exp.get('empresa')}"

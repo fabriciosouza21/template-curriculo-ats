@@ -10,13 +10,22 @@ pessoa:
     github: github.com/seu-usuario
     portfolio: seu-portfolio.com/portfolio/seu-usuario
 
-# Lista de parágrafos de perfil. O agente pode selecionar ou combinar
-# conforme a vaga. Hoje há um único parágrafo canônico.
-perfil:
-  - >
+# Perfis alternativos por chave. O manifesto de seleção escolhe um pela
+# chave (`perfil_chave`). Adicione novos perfis conforme surgirem vagas
+# com personas diferentes (backend puro, frontend, IA, etc.).
+perfis:
+  generico: >
     Engenheiro de Software Pleno com 5 anos de experiência em
     desenvolvimento Full Stack focado em Java/Spring, Clean Architecture
     e design de código. Passagem por sete domínios de negócio distintos
     (agronegócio, fintech, logística, automotivo, gamificação corporativa,
     compliance e educação). Bacharel em Ciência da Computação pela UFPA
     (2024).
+  fullstack: >
+    Engenheiro de Software Pleno com 5 anos de experiência em entregas
+    full-stack end-to-end (Java/Spring no backend, Angular/React no
+    frontend), do design de sistemas e APIs ao deploy em produção.
+    Passagem por sete domínios de negócio em consultoria e produto,
+    com foco em design de código, testes automatizados e CI/CD.
+    Bacharel em Ciência da Computação pela UFPA (2024).
+
