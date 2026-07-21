@@ -1,4 +1,4 @@
-# data/ — Fonte de verdade do currículo
+# data/ - Fonte de verdade do currículo
 
 Conteúdo canônico do currículo em YAML. Agents e geradores DOCX consomem
 estes arquivos. Os scripts Python `gerar_curriculo_ats.py` e
@@ -76,7 +76,7 @@ Estas regras são validadas por `validate.py` e refletem o spec
    "Desenvolvedor Backend Pleno 1" e cargo de apresentação "Engenheiro
    de Software Pleno". Os dois campos existem para refletir isso sem
    falsear.
-5. **Sem em-dashes (—) ou en-dashes (–).** Regra de estilo do
+5. **Sem em-dashes (U+2014) ou en-dashes (U+2013).** Regra de estilo do
    AGENTS.md.
 6. **Verbos de ação no passado.** Toda descrição de case e todo item de
    transversais começa com um destes verbos: Construí, Modelei,
