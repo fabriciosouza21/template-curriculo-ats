@@ -1,0 +1,63 @@
+# Cursos e formação complementar. Todos estudados de fato e defensáveis
+# em entrevista. Itens marcados como "(em andamento)" estão em curso.
+# O agente prioriza cursos que casam com as keywords da vaga.
+cursos:
+  - rotulo: Java
+    descricao: >
+      Udemy (jun/2021). Java Completo Programação Orientada a Objetos.
+
+  - rotulo: Spring/Cloud
+    descricao: >
+      Udemy (out/2021). Microservices do 0 com Spring Cloud, Spring Boot
+      e Docker. Feign, Eureka, API Gateway, Circuit Breaker, Resilience4j,
+      Config Server, LoadBalancer.
+
+  - rotulo: Camel + Spring Boot
+    descricao: >
+      Mastering Integration: Camel + Spring Boot. masterspringboot.com
+      (2022).
+
+  - rotulo: Arquitetura
+    descricao: >
+      Jornada Dev Eficiente (2025, em andamento). DDD, system design,
+      escalabilidade, CDD, resiliência, testes.
+
+  - rotulo: Tech leadership
+    descricao: >
+      Tech Leads Club (2026, em andamento). Context Engineering, Skills,
+      MCPs, padrões de Subagents e Multi-Agents.
+
+  - rotulo: Effective Java
+    descricao: >
+      Joshua Bloch. Estudo com anotações em Notion por capítulo: criação
+      de objetos, métodos comuns, classes e interfaces.
+
+  - rotulo: Segurança
+    descricao: >
+      OAuth 2.0. Casa do Código (livro).
+
+  - rotulo: Frontend
+    descricao: >
+      IGTI/XP (mai/2022). Vue.js, Angular, React, Svelte.
+
+  - rotulo: Node.js
+    descricao: >
+      IGTI/XP (nov/2022). REST API com Express, GraphQL, Jest.
+
+  - rotulo: Go
+    descricao: >
+      Udemy (mai/2024, em andamento). Go (Golang): Explorando a
+      Linguagem do Google.
+
+  - rotulo: Docker
+    descricao: >
+      Udemy (out/2021). Docker para Desenvolvedores.
+
+  - rotulo: Banco de dados
+    descricao: >
+      IGTI/XP (set/2022). Análise de Banco de Dados: PostgreSQL, SQL
+      Server, Oracle.
+
+  - rotulo: Inglês
+    descricao: >
+      Curso próprio (2025, em andamento).
