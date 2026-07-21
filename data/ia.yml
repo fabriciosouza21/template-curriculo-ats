@@ -1,0 +1,28 @@
+# Seção "IA como Eixo de Estudo e Aplicação". Itens com rotulo + descricao.
+# O agente decide se a seção entra (depende da vaga mencionar IA/RAG/LLM)
+# e quais itens.
+itens:
+  - rotulo: "RAG com rigor experimental"
+    descricao: >
+      Benchmark próprio de modelos de embedding para RAG em português e
+      inglês, com corpus desenhado à mão (40 queries parafraseadas,
+      45 documentos com hard negatives de propósito) e métricas de
+      retrieval (MRR, Recall@K, nDCG@10) em múltiplas execuções para
+      controlar cold start. Comparação de 7 modelos (multilingual-e5
+      base e small, qwen3-embedding, mpnet, MiniLM, jina-code via
+      llama.cpp, Ollama), testando instruction prefixes (query/passage)
+      e latência. Conclusão documentada: e5-small superou qwen3 em MRR
+      com 2,7x menos espaço e 14x mais velocidade.
+
+  - rotulo: "Engenharia agentic"
+    descricao: >
+      Estudo comparativo entre revisão solo versus plano e execução com
+      subagents, com métricas. Aplicação de Context Engineering (Spec
+      Driven, RPI, Rules, Skills, MCPs) e padrões de Subagents e
+      Multi-Agents.
+
+  - rotulo: "Desenvolvimento assistido por IA"
+    descricao: >
+      Prática diária com loop de feedback curto, TDD científico (caso
+      falhando pelo motivo certo, fix mínimo, revert para confirmar red
+      de novo, baby steps) e revisão humana do diff antes de commitar.
