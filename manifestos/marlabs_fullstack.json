@@ -1,0 +1,38 @@
+{
+  "vaga": "Marlabs Software Engineer full-stack",
+  "perfil_chave": "fullstack",
+  "experiencias": [
+    {
+      "arquivo": "experiencias/iusecase.yml",
+      "cases": ["Consol", "Apontamento", "Live2U"],
+      "transversais": [0, 1]
+    },
+    {
+      "arquivo": "experiencias/itexto.yml",
+      "cases": ["Agronegócio", "Logística", "Compliance"],
+      "transversais": [0]
+    }
+  ],
+  "habilidades_buckets": [
+    "Backend (JVM)",
+    "Persistência",
+    "Mensageria e Integração",
+    "Frontend",
+    "Auth",
+    "Cloud/DevOps",
+    "Testes",
+    "APIs e Contratos",
+    "Observabilidade e metodologia"
+  ],
+  "cursos_rotulos": [
+    "Java",
+    "Spring/Cloud",
+    "Camel + Spring Boot",
+    "Arquitetura",
+    "Frontend",
+    "Docker",
+    "Effective Java"
+  ],
+  "idiomas": true,
+  "ia": false
+}

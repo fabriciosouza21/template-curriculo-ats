@@ -1,6 +1,7 @@
 # Outputs regeneráveis
 *.docx
 *.pdf
+output/
 
 # Cache Python
 __pycache__/
