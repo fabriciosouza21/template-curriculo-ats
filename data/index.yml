@@ -1,0 +1,13 @@
+# Manifesto do currículo. Lista os arquivos YAML que compõem a fonte de
+# verdade canônica, na ordem em que aparecem no documento final.
+# O agente lê este arquivo primeiro para saber o que existe.
+versao: 1
+perfil: perfil.yml
+habilidades: habilidades.yml
+experiencias:
+  - experiencias/iusecase.yml
+  - experiencias/itexto.yml
+formacao: formacao.yml
+cursos: cursos.yml
+idiomas: idiomas.yml
+ia: ia.yml
