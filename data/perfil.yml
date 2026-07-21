@@ -1,0 +1,22 @@
+# Identidade da pessoa e parágrafos de perfil para o topo do curriculo.
+pessoa:
+  nome: Candidato Nome Completo
+  cargo_apresentacao: Engenheiro de Software Pleno
+  contato:
+    telefone: "(00) 00000-0000"
+    email: candidato.exemplo@dominio.com
+    localizacao: Cidade, UF
+    linkedin: linkedin.com/in/seu-perfil/
+    github: github.com/seu-usuario
+    portfolio: seu-portfolio.com/portfolio/seu-usuario
+
+# Lista de parágrafos de perfil. O agente pode selecionar ou combinar
+# conforme a vaga. Hoje há um único parágrafo canônico.
+perfil:
+  - >
+    Engenheiro de Software Pleno com 5 anos de experiência em
+    desenvolvimento Full Stack focado em Java/Spring, Clean Architecture
+    e design de código. Passagem por sete domínios de negócio distintos
+    (agronegócio, fintech, logística, automotivo, gamificação corporativa,
+    compliance e educação). Bacharel em Ciência da Computação pela UFPA
+    (2024).
