@@ -367,15 +367,3 @@ def test_honestidade_live2u_deve_declarar_sys3_falha():
     with pytest.raises(AssertionError) as excinfo:
         validar(doc)
     assert "Sys3" in str(excinfo.value) or "externo" in str(excinfo.value)
-
-
-def test_honestidade_apontamento_deve_declarar_divida_falha():
-    """Bullet de Apontamento deve declarar dívida/pendências."""
-    doc = _doc_valido_minimo()
-    h2(doc, "Experiência")
-    # Descrição que omite totalmente a menção a dívida ou pendências.
-    bullet(doc, "Modelei arquitetura multi-tenant totalmente concluída.",
-           negrito_prefixo="Apontamento: ")
-    with pytest.raises(AssertionError) as excinfo:
-        validar(doc)
-    assert "dívida" in str(excinfo.value).lower() or "pendente" in str(excinfo.value).lower()

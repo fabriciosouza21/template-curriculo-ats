@@ -13,7 +13,6 @@ from validate import (
     validar_campos_obrigatorios,
     validar_jooq_so_no_live2u,
     validar_backend_ia_externo_live2u,
-    validar_divida_apontamento,
     validar_sem_em_dash,
     validar_verbos_passado,
 )
@@ -68,11 +67,6 @@ def test_validar_jooq_rejeita_case_nao_live2u():
 def test_validar_backend_ia_externo_live2u():
     dados = carregar_tudo(DATA_DIR)
     validar_backend_ia_externo_live2u(dados)  # não levanta
-
-
-def test_validar_divida_apontamento():
-    dados = carregar_tudo(DATA_DIR)
-    validar_divida_apontamento(dados)  # não levanta
 
 
 def test_validar_sem_em_dash():

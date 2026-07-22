@@ -1,7 +1,7 @@
 # Identidade da pessoa e parágrafos de perfil para o topo do curriculo.
 pessoa:
   nome: Candidato Nome Completo
-  cargo_apresentacao: Engenheiro de Software Pleno
+  cargo_apresentacao: Desenvolvedor Full Stack Pleno
   contato:
     telefone: "(00) 00000-0000"
     email: candidato.exemplo@dominio.com
@@ -15,21 +15,21 @@ pessoa:
 # com personas diferentes (backend puro, frontend, IA, etc.).
 perfis:
   generico: >
-    Engenheiro de Software Pleno com 5 anos de experiência em
+    Desenvolvedor Full Stack Pleno com quase 5 anos de experiência em
     desenvolvimento Full Stack focado em Java/Spring, Clean Architecture
     e design de código. Passagem por sete domínios de negócio distintos
     (agronegócio, fintech, logística, automotivo, gamificação corporativa,
     compliance e educação). Bacharel em Ciência da Computação pela UFPA
     (2024).
   fullstack: >
-    Engenheiro de Software Pleno com 5 anos de experiência em entregas
-    full-stack end-to-end em Java/Spring e Angular/React, construindo 10
-    sistemas em produção em 7 domínios de negócio (gamificação com 2,4M
-    ações, crédito rural para 79 clientes, saúde com 13 mil
-    beneficiários). Bacharel em Ciência da Computação pela UFPA (2024).
+    Desenvolvedor Full Stack Pleno com quase 5 anos de experiência em
+    entregas full-stack end-to-end em Java/Spring e Angular/React,
+    construindo 10 sistemas em produção em 7 domínios de negócio
+    (gamificação com 2,4M ações, crédito rural para 79 clientes, saúde
+    com 13 mil beneficiários). Bacharel em Ciência da Computação pela
+    UFPA (2024).
   backend: >
-    Engenheiro de Software Pleno com 5 anos de experiência em backend
+    Desenvolvedor Backend Pleno com quase 5 anos de experiência em
     Java/Spring (Clean Architecture, multi-tenancy, mensageria),
     construindo 10 sistemas em produção em 7 domínios de negócio.
     Bacharel em Ciência da Computação pela UFPA (2024).
-

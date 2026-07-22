@@ -29,6 +29,7 @@ from docx import Document
 
 from gerador.render import (
     style,
+    _hex_para_rgb,
     nome,
     cargo,
     contato,
@@ -198,10 +199,14 @@ def _selecionar_perfil(perfis: dict, chave_pedido: str) -> str:
 
 # ---- Seções (uma função por seção canônica) ----
 
-def _render_cabecalho(doc: Document, perfil: dict) -> None:
+def _render_cabecalho(doc: Document, perfil: dict, cor=None, cargo_override=None) -> None:
     pessoa = perfil["pessoa"]
-    nome(doc, pessoa["nome"])
-    cargo(doc, pessoa["cargo_apresentacao"])
+    nome(doc, pessoa["nome"], cor=cor)
+    # cargo_override (do manifesto) tem precedência sobre perfil.yml.
+    # Permite alinhar o cargo de apresentação à vaga sem alterar a fonte
+    # canônica nem afetar outros manifestos.
+    cargo_texto = cargo_override or pessoa["cargo_apresentacao"]
+    cargo(doc, cargo_texto, cor=cor)
 
     c = pessoa.get("contato", {})
     # Ordem canônica do brief: telefone, email, localizacao, linkedin,
@@ -211,14 +216,14 @@ def _render_cabecalho(doc: Document, perfil: dict) -> None:
     contato(doc, partes)
 
 
-def _render_perfil(doc: Document, perfil: dict, chave: str) -> None:
+def _render_perfil(doc: Document, perfil: dict, chave: str, cor=None, rotulo="Perfil") -> None:
     texto = _selecionar_perfil(perfil.get("perfis", {}), chave)
-    h2(doc, "Perfil")
+    h2(doc, rotulo, cor=cor)
     paragrafo(doc, texto)
 
 
-def _render_habilidades(doc: Document, habilidades: dict, rotulos: list[str]) -> None:
-    h2(doc, "Habilidades")
+def _render_habilidades(doc: Document, habilidades: dict, rotulos: list[str], cor=None) -> None:
+    h2(doc, "Habilidades", cor=cor)
     for rotulo in rotulos:
         bucket = _selecionar_bucket(habilidades.get("buckets", []), rotulo)
         itens = bucket.get("itens", [])
@@ -227,7 +232,7 @@ def _render_habilidades(doc: Document, habilidades: dict, rotulos: list[str]) ->
 
 
 def _render_experiencia(doc: Document, dados: dict, manifesto_exp: dict,
-                        arquivos_index: list[str]) -> None:
+                        arquivos_index: list[str], cor=None) -> None:
     arquivo_pedido = manifesto_exp["arquivo"]
     exp = _selecionar_experiencia(dados["experiencias"], arquivos_index, arquivo_pedido)
 
@@ -267,8 +272,8 @@ def _render_experiencia(doc: Document, dados: dict, manifesto_exp: dict,
         bullet(doc, texto)
 
 
-def _render_formacao(doc: Document, formacao: dict) -> None:
-    h2(doc, "Formação")
+def _render_formacao(doc: Document, formacao: dict, cor=None) -> None:
+    h2(doc, "Formação", cor=cor)
     for item in formacao.get("formacao", []):
         curso = str(item["curso"]).strip()
         instituicao = str(item["instituicao"]).strip()
@@ -281,8 +286,8 @@ def _render_formacao(doc: Document, formacao: dict) -> None:
             paragrafo(doc, detalhes)
 
 
-def _render_cursos(doc: Document, cursos: dict, rotulos: list[str]) -> None:
-    h2(doc, "Formação Complementar")
+def _render_cursos(doc: Document, cursos: dict, rotulos: list[str], cor=None) -> None:
+    h2(doc, "Formação Complementar", cor=cor)
     for rotulo in rotulos:
         curso = _selecionar_curso(cursos.get("cursos", []), rotulo)
         bullet(
@@ -292,16 +297,16 @@ def _render_cursos(doc: Document, cursos: dict, rotulos: list[str]) -> None:
         )
 
 
-def _render_idiomas(doc: Document, idiomas: dict) -> None:
-    h2(doc, "Idiomas")
+def _render_idiomas(doc: Document, idiomas: dict, cor=None) -> None:
+    h2(doc, "Idiomas", cor=cor)
     for item in idiomas.get("idiomas", []):
         idioma = str(item["idioma"]).strip()
         nivel = str(item.get("nivel", "")).strip()
         bullet(doc, nivel, negrito_prefixo=f"{idioma}: ")
 
 
-def _render_ia(doc: Document, ia: dict) -> None:
-    h2(doc, "IA como Eixo de Estudo e Aplicação")
+def _render_ia(doc: Document, ia: dict, cor=None) -> None:
+    h2(doc, "IA como Eixo de Estudo e Aplicação", cor=cor)
     for item in ia.get("itens", []):
         rotulo = str(item["rotulo"]).strip()
         descricao = str(item["descricao"]).strip()
@@ -334,36 +339,46 @@ def montar(manifesto_path: str | Path, data_dir: str | Path = None) -> Document:
     dados = carregar_tudo(data_dir_resolved)
     arquivos_index = list(dados["index"].get("experiencias", []))
 
+    # Cor de destaque opcional (#RRGGBB). Default None = preto (ATS puro).
+    # Marlabs e manifestos sem a chave continuam sem cor.
+    cor = _hex_para_rgb(manifesto.get("cor"))
+
     doc = Document()
     style(doc)
 
     # 1. Cabeçalho.
-    _render_cabecalho(doc, dados["perfil"])
+    _render_cabecalho(
+        doc, dados["perfil"], cor=cor,
+        cargo_override=manifesto.get("cargo_apresentacao"),
+    )
 
     # 2. Perfil.
-    _render_perfil(doc, dados["perfil"], manifesto["perfil_chave"])
+    _render_perfil(
+        doc, dados["perfil"], manifesto["perfil_chave"], cor=cor,
+        rotulo=manifesto.get("perfil_rotulo", "Perfil"),
+    )
 
     # 3. Habilidades.
-    _render_habilidades(doc, dados["habilidades"], manifesto.get("habilidades_buckets", []))
+    _render_habilidades(doc, dados["habilidades"], manifesto.get("habilidades_buckets", []), cor=cor)
 
     # 4. Experiência.
     if manifesto.get("experiencias"):
-        h2(doc, "Experiência")
+        h2(doc, "Experiência", cor=cor)
         for manifesto_exp in manifesto["experiencias"]:
-            _render_experiencia(doc, dados, manifesto_exp, arquivos_index)
+            _render_experiencia(doc, dados, manifesto_exp, arquivos_index, cor=cor)
 
     # 5. Formação.
-    _render_formacao(doc, dados["formacao"])
+    _render_formacao(doc, dados["formacao"], cor=cor)
 
     # 6. Cursos (Formação Complementar).
-    _render_cursos(doc, dados["cursos"], manifesto.get("cursos_rotulos", []))
+    _render_cursos(doc, dados["cursos"], manifesto.get("cursos_rotulos", []), cor=cor)
 
     # 7. Idiomas (toggle).
     if manifesto.get("idiomas"):
-        _render_idiomas(doc, dados["idiomas"])
+        _render_idiomas(doc, dados["idiomas"], cor=cor)
 
     # 8. IA (toggle).
     if manifesto.get("ia"):
-        _render_ia(doc, dados["ia"])
+        _render_ia(doc, dados["ia"], cor=cor)
 
     return doc

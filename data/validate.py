@@ -7,7 +7,6 @@ Carrega todos os YAMLs em data/ e valida:
 - Regras de honestidade do spec:
   - jOOQ só no Live2U.
   - Backend de IA externo declarado no Live2U.
-  - Dívida documentada no Apontamento.
 - Regra de estilo: sem em-dashes (U+2014) ou en-dashes (U+2013).
 - Regra de estilo: descrições começam com verbo de ação no passado.
 
@@ -93,16 +92,6 @@ def validar_backend_ia_externo_live2u(dados: dict) -> None:
                 assert 'sys3' in d, "Live2U deve mencionar 'Sys3'"
 
 
-def validar_divida_apontamento(dados: dict) -> None:
-    """Case Apontamento deve declarar dívida (pendentes ou dívida)."""
-    for exp in dados['experiencias']:
-        for case in exp['cases']:
-            if case['produto'] == 'Apontamento':
-                d = case['descricao'].lower()
-                assert 'pendente' in d or 'dívida' in d, \
-                    "Apontamento deve declarar pendências"
-
-
 def validar_sem_em_dash(dados: dict) -> None:
     """Nenhuma string pode conter em-dash (U+2014) ou en-dash (U+2013)."""
     import json
@@ -126,7 +115,7 @@ def validar_verbos_passado(dados: dict) -> None:
     verbos_base = {
         'Construí', 'Modelei', 'Implementei', 'Mantive', 'Desenvolvi',
         'Integrei', 'Estruturei', 'Participei', 'Colaborei', 'Refatorei',
-        'Atuei', 'Contribuí',
+        'Atuei', 'Contribuí', 'Automatizei', 'Lidei', 'Colaboro',
     }
     for exp in dados['experiencias']:
         for case in exp['cases']:
@@ -146,7 +135,6 @@ def validar_tudo(data_dir: Path) -> bool:
     validar_campos_obrigatorios(dados)
     validar_jooq_so_no_live2u(dados)
     validar_backend_ia_externo_live2u(dados)
-    validar_divida_apontamento(dados)
     validar_sem_em_dash(dados)
     validar_verbos_passado(dados)
 

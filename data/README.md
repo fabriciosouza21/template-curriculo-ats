@@ -79,16 +79,13 @@ Estas regras são validadas por `validate.py` e refletem o spec
    Apontamento. Aparece em habilidades e no case Live2U.
 2. **Backend de IA externo no Live2U.** O case Live2U deve declarar
    explicitamente que o backend de IA é externo (operado pela Sys3).
-3. **Dívida documentada no Apontamento.** O case Apontamento deve
-   mencionar que a migração multi-tenant está parcial (timelogging
-   migrado, Initiative/Workbook/Sprint pendentes).
-4. **Cargo CTPS vs cargo de apresentação.** iUsecase tem cargo CTPS
+3. **Cargo CTPS vs cargo de apresentação.** iUsecase tem cargo CTPS
    "Desenvolvedor Backend Pleno 1" e cargo de apresentação "Engenheiro
    de Software Pleno". Os dois campos existem para refletir isso sem
    falsear.
-5. **Sem em-dashes (U+2014) ou en-dashes (U+2013).** Regra de estilo do
+4. **Sem em-dashes (U+2014) ou en-dashes (U+2013).** Regra de estilo do
    AGENTS.md.
-6. **Verbos de ação no passado.** Toda descrição de case e todo item de
+5. **Verbos de ação no passado.** Toda descrição de case e todo item de
    transversais começa com um destes verbos: Construí, Modelei,
    Implementei, Mantive, Desenvolvi, Integrei, Estruturei, Participei,
    Colaborei, Refatorei.

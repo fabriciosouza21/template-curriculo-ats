@@ -1,7 +1,7 @@
 # Passagem pela iUsecase (Jul 2025 - atual). Case principal: Consol.
 empresa: iUsecase Tecnologia e Inovação
 cargo: Desenvolvedor Backend Pleno 1            # cargo CTPS (formal, CBO 2124-05)
-cargo_apresentacao: Engenheiro de Software Pleno # cargo no cabeçalho do curriculo
+cargo_apresentacao: Desenvolvedor Full Stack Pleno # função real exercida
 periodo:
   inicio: 2025-07
   fim: atual
@@ -16,31 +16,36 @@ cases:
     destaque: true    # prioridade máxima: entra sempre salvo incompatibilidade
                       # forte com a vaga (ex.: case backend em vaga só mobile)
     descricao: >
-      Desenvolvi backend para fiscalização de malha rodoviária atendendo 3
-      contratos que cobriam 14 rodovias e 138 segmentos em Minas Gerais,
-      com dados geoespaciais e sincronização mobile offline-first.
+      Desenvolvi backend para fiscalização de malha rodoviária em Minas
+      Gerais, permitindo vistorias offline em campo com sincronização
+      posterior e dados geoespaciais sobre 14 rodovias. A sincronização
+      mobile com lock distribuído eliminou perda de dados em campo.
 
   - produto: Apontamento
     dominio: timesheet multi-tenant
     descricao: >
-      Modelei sistema de timesheet multi-tenant servindo 4 empresas e 28
-      clientes de infraestrutura (DNIT, DER/SP, INVEPAR), com motor de
-      regras configuráveis por cliente e cache para reduzir custo.
-      Initiative e Workbook ainda pendentes (dívida documentada).
+      Modelei sistema de timesheet multi-tenant servindo 4 empresas com
+      regras de negócio configuráveis por cliente em banco, eliminando
+      condicionais de cliente do código. O cache de policies reduziu
+      consultas ao banco. Initiative e Workbook ainda pendentes (dívida
+      documentada).
 
   - produto: Live2U
     dominio: clínicas e saúde
     descricao: >
-      Construí plataforma de saúde multi-tenant com 3 clínicas, migração
-      de 13.416 beneficiários, 31 especialidades e integrações com
-      operadora TopMed, marketplace Alloyal e WhatsApp. O backend de IA
-      é externo (operado pela Sys3); meu trabalho foi a orquestração.
+      Construí plataforma de saúde multi-tenant com migração de 13.416
+      beneficiários e integrações com operadora TopMed, marketplace
+      Alloyal e WhatsApp. Integrei serviço externo de RAG sobre exames;
+      o backend de IA é externo (operado pela Sys3), meu trabalho foi a
+      orquestração e integração.
 
 transversais:
   - >
-    Mantive CI/CD em GitLab com deploy para ECS via ECR e S3 com
-    CloudFront, cultura de testes com Testcontainers e AssertJ, e
-    suporte a produção com análise de causa raiz (RCA) de incidentes.
+    Automatizei CI/CD em GitLab com deploy para ECS via ECR e S3 com
+    CloudFront, e sustentei cultura de testes com Testcontainers e
+    AssertJ. Lidei com incidentes em produção fazendo análise de causa
+    raiz (RCA) para evitar reincidência.
   - >
-    Participei de decisões de arquitetura e mentorei desenvolvedores
-    juniores em Clean Architecture e revisão de código.
+    Estruturei design de código em Clean Architecture nas decisões de
+    arquitetura do time (multi-tenant, escolha de abordagem de
+    persistência, separação de domínio e infraestrutura).

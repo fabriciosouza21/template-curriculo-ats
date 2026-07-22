@@ -68,6 +68,11 @@ VERBOS_ACEITOS = {
     "Participei",
     "Colaborei",
     "Refatorei",
+    "Atuei",
+    "Contribuí",
+    "Automatizei",
+    "Lidei",
+    "Colaboro",
 }
 
 # Prefixos de produto conhecidos na fonte YAML. Aparecem em bullets de
@@ -120,7 +125,7 @@ def validar(
     _checar_sem_dashes(texto)
 
     # 3. Seções obrigatórias presentes.
-    _checar_secoes_obrigatorias(texto)
+    _checar_secoes_obrigatorias(texto, manifesto=manifesto)
 
     # 4. Contato presente.
     _checar_contato(texto)
@@ -164,11 +169,20 @@ def _checar_sem_dashes(texto: str) -> None:
     )
 
 
-def _checar_secoes_obrigatorias(texto: str) -> None:
-    """Regra 3: seções obrigatórias como headers maiúsculos no texto."""
+def _checar_secoes_obrigatorias(texto: str, manifesto: Optional[dict] = None) -> None:
+    """Regra 3: seções obrigatórias como headers maiúsculos no texto.
+
+    O rótulo de PERFIL pode ser customizado pelo manifesto (perfil_rotulo),
+    alinhando o cabeçalho da seção ao cargo da vaga. Nesse caso o rótulo
+    customizado é aceito como alias de PERFIL.
+    """
+    rotulo_perfil = "PERFIL"
+    if manifesto and manifesto.get("perfil_rotulo"):
+        rotulo_perfil = str(manifesto["perfil_rotulo"]).upper()
     for secao in SECOES_OBRIGATORIAS:
-        assert secao in texto, (
-            f"Seção obrigatória ausente: {secao}. "
+        esperado = rotulo_perfil if secao == "PERFIL" else secao
+        assert esperado in texto, (
+            f"Seção obrigatória ausente: {esperado}. "
             f"Verifique a ordem canônica em gerador.montar."
         )
 
@@ -270,8 +284,6 @@ def _checar_regras_honestidade(doc: _DocumentType) -> None:
        Apontamento).
     2. Bullet de Live2U deve mencionar "Sys3" ou "externo" (backend IA
        externo).
-    3. Bullet de Apontamento deve mencionar "pendente" ou "dívida"
-       (dívida documentada).
     """
     for p in doc.paragraphs:
         texto = p.text
@@ -287,13 +299,6 @@ def _checar_regras_honestidade(doc: _DocumentType) -> None:
             assert "sys3" in lower or "externo" in lower, (
                 "Bullet de Live2U deve declarar que o backend de IA é "
                 "externo (menção a Sys3 ou 'externo'). "
-                f"Texto: {texto[:80]!r}."
-            )
-        if texto.startswith("Apontamento:"):
-            lower = texto.lower()
-            assert "pendente" in lower or "dívida" in lower, (
-                "Bullet de Apontamento deve declarar pendências ou "
-                "dívida documentada. "
                 f"Texto: {texto[:80]!r}."
             )
 

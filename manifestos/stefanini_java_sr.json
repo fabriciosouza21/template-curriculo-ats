@@ -1,0 +1,39 @@
+{
+  "vaga": "Stefanini Desenvolvedor Back End Java SR",
+  "perfil_chave": "backend",
+  "cargo_apresentacao": "Desenvolvedor Back End Java SR",
+  "perfil_rotulo": "Desenvolvedor Back End Java SR",
+  "cor": "#0B1641",
+  "experiencias": [
+    {
+      "arquivo": "experiencias/iusecase.yml",
+      "cases": ["Consol", "Apontamento", "Live2U"],
+      "transversais": [0, 1]
+    },
+    {
+      "arquivo": "experiencias/itexto.yml",
+      "cases": ["Weex", "Plataforma Ativus", "Corteva"],
+      "transversais": [0]
+    }
+  ],
+  "habilidades_buckets": [
+    "Backend (JVM)",
+    "Persistência",
+    "Mensageria e Integração",
+    "Testes",
+    "Cloud/DevOps e observabilidade",
+    "APIs, contratos e auth",
+    "Metodologia e soft skills"
+  ],
+  "cursos_rotulos": [
+    "Java",
+    "Spring/Cloud",
+    "Camel + Spring Boot",
+    "Arquitetura",
+    "Docker",
+    "Effective Java",
+    "Segurança"
+  ],
+  "idiomas": true,
+  "ia": false
+}

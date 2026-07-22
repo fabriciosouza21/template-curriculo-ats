@@ -1,7 +1,7 @@
 # Passagem pela itexto (Out 2021 - Abr 2025). Case principal: Weex.
 empresa: itexto Consultoria em Tecnologia
 cargo: Programador                              # cargo CTPS (formal, CBO 3171-10)
-cargo_apresentacao: Engenheiro de Software Pleno # função real exercida (full stack)
+cargo_apresentacao: Desenvolvedor Full Stack Pleno # função real exercida
 periodo:
   inicio: 2021-10
   fim: 2025-04
@@ -17,24 +17,25 @@ cases:
     destaque: true    # case principal: 3,5 anos de atuação contínua
     descricao: >
       Desenvolvi por 3,5 anos a plataforma Weex de gamificação corporativa
-      com mais de 2,4 milhões de ações registradas e ~290 mil inscrições
-      em eventos. Arquitetura em microsserviços com mensageria assíncrona,
-      implementando motor de roletas, rankings, conquistas e feedback em
-      vídeo.
+      que processou mais de 2,4 milhões de ações de usuários e ~290 mil
+      inscrições em eventos. Em arquitetura de microsserviços com
+      mensageria assíncrona, implementei o motor de roletas sorteáveis,
+      rankings, conquistas e feedback em vídeo.
 
   - produto: Plataforma Ativus
     dominio: crédito rural e análise de crédito
     descricao: >
-      Construí features de crédito rural na plataforma multi-tenant
-      Ativus, atendendo 79 clientes do agronegócio (Bunge, Raízen, BASF),
-      incluindo gateway orquestrado de 8 tipos de Certidões Negativas de
-      Débitos integrando Receita Federal, estaduais, municipais e Ibama.
+      Desenvolvi features de crédito rural na plataforma multi-tenant
+      Ativus, que atende 79 clientes do agronegócio (Bunge, Raízen,
+      BASF). Construí o gateway orquestrado de Certidões Negativas de
+      Débitos que acelerou a validação cadastral integrando Receita
+      Federal, estaduais, municipais e Ibama.
 
   - produto: Corteva
     dominio: barter agrícola
     descricao: >
-      Implementei sistema de barter agrícola com catálogo de 131
-      defensivos, 25 tipos de garantia rural e marketplace de cessões,
+      Implementei marketplace de cessões de barter agrícola com
+      conciliação financeira e controle de limite de crédito por trading,
       em microserviços com auditoria de alterações e Single Sign-On.
 
   - produto: QR-Capital
@@ -45,11 +46,11 @@ cases:
 
 transversais:
   - >
-    Participei do ciclo completo de 7 sistemas em 3,5 anos: requisitos
-    com cliente, contratos de API em Swagger, desenvolvimento backend
-    (Java/Spring e Go) e frontend (Angular, React, Vue), testes com JUnit
-    e Mockito, deploy com Docker e suporte a produção com RCA de
-    incidentes.
+    Atuei no ciclo completo de 7 sistemas em 3,5 anos: levantamento de
+    requisitos com cliente, contratos de API em Swagger, desenvolvimento
+    backend (Java/Spring e Go) e frontend (Angular, React, Vue), testes
+    com JUnit e Mockito, deploy com Docker e suporte a produção com RCA
+    de incidentes.
   - >
     Contribuí pontualmente em outros produtos: Flex-Frete (mensageria,
     React 17), RRZ (assinatura digital com auditoria, Spring Boot 3) e

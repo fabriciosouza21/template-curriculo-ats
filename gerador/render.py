@@ -4,14 +4,16 @@ Extrai e publica os helpers de `gerar_curriculo_ats.py` (linhas 28-124).
 Comportamento idêntico ao legado validado em produção: mesmo A4, mesmas
 margens 2cm, mesma fonte Calibri 10.5pt, mesmos espaçamentos.
 
-Estilo ATS único: sem cor, sem tabelas de layout, uma coluna, texto puro.
-Os nomes são públicos (sem underscore) para consumo limpo por
-`gerador.montar` (Task 3 do plano gerador-docx).
+Estilo ATS único: sem tabelas de layout, uma coluna, texto puro. A cor de
+destaque é opcional (default None = preto, ATS-friendly). Quando o manifesto
+passa uma cor (ex.: #0B1641), ela é aplicada apenas em nome, cargo e H2,
+mantendo o corpo preto. Os nomes são públicos (sem underscore) para consumo
+limpo por `gerador.montar`.
 """
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT
-from docx.shared import Pt, Cm, Mm
+from docx.shared import Pt, Cm, Mm, RGBColor
 
 # Fonte ATS-safe: Calibri (fallback universal). Tamanhos alinhados às
 # recomendações da Alura (10-12pt) com margens ~2cm. Aceita até 3 páginas
@@ -21,6 +23,25 @@ FONTE_NOME = 18
 FONTE_H1 = 12
 FONTE_H2 = 11
 FONTE_CORPO = 10.5
+
+
+def _hex_para_rgb(hex_str):
+    """Converte "#RRGGBB" ou "RRGGBB" em RGBColor. None/vazio -> None.
+
+    Levanta ValueError se a string não casar com 6 hex digits.
+    """
+    if hex_str is None:
+        return None
+    s = str(hex_str).strip().lstrip("#")
+    if len(s) != 6:
+        raise ValueError(f"cor hex inválida (esperado #RRGGBB): {hex_str!r}")
+    try:
+        r = int(s[0:2], 16)
+        g = int(s[2:4], 16)
+        b = int(s[4:6], 16)
+    except ValueError as exc:
+        raise ValueError(f"cor hex inválida (não é hex): {hex_str!r}") from exc
+    return RGBColor(r, g, b)
 
 
 def style(doc: Document) -> None:
@@ -41,8 +62,8 @@ def style(doc: Document) -> None:
     normal.paragraph_format.line_spacing = 1.1
 
 
-def nome(doc: Document, texto: str) -> None:
-    """Nome em maiúsculas, 18pt bold, centralizado."""
+def nome(doc: Document, texto: str, cor=None) -> None:
+    """Nome em maiúsculas, 18pt bold, centralizado. `cor` opcional."""
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.space_after = Pt(0)
@@ -50,16 +71,20 @@ def nome(doc: Document, texto: str) -> None:
     r.bold = True
     r.font.size = Pt(FONTE_NOME)
     r.font.name = FONTE
+    if cor is not None:
+        r.font.color.rgb = cor
 
 
-def cargo(doc: Document, texto: str) -> None:
-    """Cargo logo abaixo do nome, 12pt, centralizado."""
+def cargo(doc: Document, texto: str, cor=None) -> None:
+    """Cargo logo abaixo do nome, 12pt, centralizado. `cor` opcional."""
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.space_after = Pt(2)
     r = p.add_run(texto)
     r.font.size = Pt(FONTE_H1)
     r.font.name = FONTE
+    if cor is not None:
+        r.font.color.rgb = cor
 
 
 def contato(doc: Document, partes: list[str]) -> None:
@@ -72,11 +97,12 @@ def contato(doc: Document, partes: list[str]) -> None:
     r.font.name = FONTE
 
 
-def h2(doc: Document, texto: str) -> None:
-    """Cabeçalho de seção em maiúsculas, bold, 11pt.
+def h2(doc: Document, texto: str, cor=None) -> None:
+    """Cabeçalho de seção em maiúsculas, bold, 11pt. `cor` opcional.
 
     Sem borda inferior: underline em run separado seria ruído para ATS.
-    Mantém apenas bold + caixa alta.
+    Mantém apenas bold + caixa alta. A cor, quando fornecida, dá
+    identidade visual sem comprometer a leitura ATS.
     """
     p = doc.add_paragraph()
     p.paragraph_format.space_before = Pt(5)
@@ -85,6 +111,8 @@ def h2(doc: Document, texto: str) -> None:
     r.bold = True
     r.font.size = Pt(FONTE_H2)
     r.font.name = FONTE
+    if cor is not None:
+        r.font.color.rgb = cor
 
 
 def paragrafo(doc: Document, texto: str) -> None:
