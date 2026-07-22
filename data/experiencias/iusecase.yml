@@ -16,34 +16,35 @@ cases:
     destaque: true    # prioridade máxima: entra sempre salvo incompatibilidade
                       # forte com a vaga (ex.: case backend em vaga só mobile)
     descricao: >
-      Desenvolvi backend em Spring Boot 3.2 e Java 21 em Clean Architecture
-      com CQRS-lite, usando hibernate-spatial/JTS para geometria rodoviária
-      e sincronização mobile offline-first com lock em Redis. Frontend em
-      React 19 e mobile em Flutter.
+      Desenvolvi backend para fiscalização de malha rodoviária em Clean
+      Architecture com separação de leitura e escrita, usando dados
+      geoespaciais para geometria rodoviária e sincronização mobile
+      offline-first com lock distribuído em cache. Frontend em React 19 e
+      mobile em Flutter.
 
   - produto: Apontamento
     dominio: timesheet multi-tenant
     descricao: >
-      Modelei arquitetura multi-tenant database-driven com policies em
-      banco e resolvers @Cacheable em Caffeine. Migrei o módulo de
-      timelogging para eliminar condicionais de cliente; Initiative e
-      Workbook ainda pendentes (dívida documentada). Spring Boot 3.2,
-      Java 17, QueryDSL e Angular 17.
+      Modelei arquitetura multi-tenant com regras de negócio configuráveis
+      por cliente em banco e cache para reduzir custo e melhorar latência.
+      Migrei o módulo de apontamento de horas para eliminar condicionais
+      de cliente do código; Initiative e Workbook ainda pendentes (dívida
+      documentada). Spring Boot 3.2, Java 17 e Angular 17.
 
   - produto: Live2U
     dominio: clínicas e saúde
     descricao: >
       Integrei serviço externo de RAG sobre exames no frontend Angular,
-      com upload de PDF e jobs assíncronos com polling. Backend Spring
-      Boot 3.2 com Java 21 e jOOQ. O backend de IA é externo (operado
-      pela Sys3); meu trabalho foi a orquestração e integração.
+      com upload de PDF e processamento assíncrono com polling. O backend
+      de IA é externo (operado pela Sys3); meu trabalho foi a orquestração
+      e integração, não a implementação do backend de IA.
 
 transversais:
   - >
-    Mantive CI/CD em GitLab com deploy de imagens ARM64 para ECS via ECR
-    e S3 com CloudFront, cultura de testes com Testcontainers e AssertJ,
-    e suporte a produção com análise de causa raiz (RCA) de incidentes.
+    Mantive CI/CD em GitLab com deploy de imagens para ECS via ECR e S3
+    com CloudFront, cultura de testes com Testcontainers e AssertJ, e
+    suporte a produção com análise de causa raiz (RCA) de incidentes.
   - >
     Participei de decisões de arquitetura (multi-tenant, escolha entre
-    JPA/QueryDSL/jOOQ) e mentorei desenvolvedores juniores em Clean
-    Architecture e revisão de código.
+    abordagens de persistência) e mentorei desenvolvedores juniores em
+    Clean Architecture e revisão de código.

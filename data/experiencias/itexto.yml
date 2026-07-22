@@ -17,31 +17,32 @@ cases:
     destaque: true    # case principal: 3,5 anos de atuação contínua
     descricao: >
       Desenvolvi por 3,5 anos a plataforma Weex de gamificação corporativa
-      em ~20 microsserviços (core, dash-api, async, PWAs em Angular), com
-      mensageria em Apache Camel e AWS SQS, certificados em AWS Lambda e
-      IaC em Terraform. Implementei motor de roletas, rankings, conquistas
-      e relatórios finais de eventos.
+      em ~20 microsserviços com mensageria assíncrona, geração de
+      certificados em Lambda e infraestrutura como código. Implementei o
+      motor de roletas, rankings, conquistas e relatórios finais de
+      eventos, com frontend em Angular.
 
   - produto: Plataforma Ativus
     dominio: crédito rural e análise de crédito
     descricao: >
-      Construí features de crédito rural na plataforma Ativus em Spring
-      Boot 2.3, Java 11, MySQL e Angular 13, incluindo gateway de 8 tipos
-      de Certidões Negativas de Débitos em Apache Camel e AWS SQS.
+      Construí features de crédito rural na plataforma Ativus, incluindo
+      o gateway de 8 tipos de Certidões Negativas de Débitos com
+      integração orquestrada e processamento assíncrono via mensageria.
+      Backend Spring e frontend Angular.
 
   - produto: Corteva
     dominio: barter agrícola
     descricao: >
-      Implementei sistema de barter agrícola em microserviços Spring Cloud
-      (Eureka, Feign), Vue 2, PostgreSQL com Hibernate Envers e Keycloak
-      OIDC, com marketplace de cessões e conciliação financeira.
+      Implementei sistema de barter agrícola em microserviços com
+      descoberta de serviços e comunicação entre APIs, Vue 2, PostgreSQL
+      com auditoria de alterações e Single Sign-On. Inclui marketplace de
+      cessões e conciliação financeira.
 
   - produto: QR-Capital
     dominio: tokenização de ativos financeiros
     descricao: >
       Implementei orquestrador de tokenizadora de ativos como cliente
-      GraphQL de API externa (graphql-java-generator), com Spring Data
-      JPA, Hibernate Envers e OAuth2/Keycloak.
+      GraphQL de API externa, com persistência audítavel e OAuth2.
 
 transversais:
   - >
@@ -51,6 +52,6 @@ transversais:
     e Mockito, deploy com Docker e suporte a produção com RCA de
     incidentes.
   - >
-    Contribuí pontualmente em outros produtos: Flex-Frete (mensageria
-    Camel e SQS, React 17), RRZ (assinatura digital com Hibernate Envers,
-    Spring Boot 3) e Wikle (frontend Angular).
+    Contribuí pontualmente em outros produtos: Flex-Frete (mensageria,
+    React 17), RRZ (assinatura digital com auditoria, Spring Boot 3) e
+    Wikle (frontend Angular).
