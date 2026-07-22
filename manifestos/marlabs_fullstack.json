@@ -9,7 +9,7 @@
     },
     {
       "arquivo": "experiencias/itexto.yml",
-      "cases": ["Agronegócio", "Logística", "Compliance"],
+      "cases": ["Weex", "Plataforma Ativus", "Corteva"],
       "transversais": [0]
     }
   ],
@@ -22,7 +22,8 @@
     "Cloud/DevOps",
     "Testes",
     "APIs e Contratos",
-    "Observabilidade e metodologia"
+    "Observabilidade",
+    "Metodologia e soft skills"
   ],
   "cursos_rotulos": [
     "Java",
