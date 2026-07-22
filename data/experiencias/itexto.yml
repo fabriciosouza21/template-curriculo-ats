@@ -17,51 +17,40 @@ cases:
     destaque: true    # case principal: 3,5 anos de atuação contínua
     descricao: >
       Desenvolvi por 3,5 anos a plataforma Weex de gamificação corporativa
-      e eventos presenciais, atuando em ~20 microsserviços (core,
-      dash-api, async, notification, certificado-server, PWAs em Angular)
-      com mensageria em Apache Camel e AWS SQS, geração de certificados
-      em AWS Lambda e IaC com Terraform. Implementei o motor de roletas
-      com agenda por unidade, sistema de rankings individuais e por
-      equipe, conquistas, brindes e relatórios finais de eventos.
+      em ~20 microsserviços (core, dash-api, async, PWAs em Angular), com
+      mensageria em Apache Camel e AWS SQS, certificados em AWS Lambda e
+      IaC em Terraform. Implementei motor de roletas, rankings, conquistas
+      e relatórios finais de eventos.
 
   - produto: Plataforma Ativus
     dominio: crédito rural e análise de crédito
     descricao: >
-      Construí features de crédito rural na plataforma Ativus (instâncias
-      Fiagril e Atua Agro) em Spring Boot 2.3, Java 11, MySQL, Flyway e
-      Angular 13, incluindo o gateway de Certidões Negativas de Débitos
-      com 8 tipos (Federal, Estadual, Municipal, Trabalhista, FGTS,
-      Ibama, Judiciais) orquestrado em Apache Camel e AWS SQS.
+      Construí features de crédito rural na plataforma Ativus em Spring
+      Boot 2.3, Java 11, MySQL e Angular 13, incluindo gateway de 8 tipos
+      de Certidões Negativas de Débitos em Apache Camel e AWS SQS.
 
   - produto: Corteva
     dominio: barter agrícola
     descricao: >
-      Implementei sistema de barter agrícola da Corteva em microserviços
-      Spring Cloud (Eureka, Feign), Vue 2, PostgreSQL com Hibernate Envers
-      para auditoria e Keycloak OIDC, com marketplace de cessões,
-      conciliação financeira e importação de planilhas em Apache POI.
+      Implementei sistema de barter agrícola em microserviços Spring Cloud
+      (Eureka, Feign), Vue 2, PostgreSQL com Hibernate Envers e Keycloak
+      OIDC, com marketplace de cessões e conciliação financeira.
 
   - produto: QR-Capital
     dominio: tokenização de ativos financeiros
     descricao: >
       Implementei orquestrador de tokenizadora de ativos como cliente
-      GraphQL de API externa (graphql-java-generator + WebClient), com
-      Spring Data JPA e Hibernate Envers sobre PostgreSQL, OAuth2/Keycloak,
-      Spring Boot 2.7 e Java 16.
+      GraphQL de API externa (graphql-java-generator), com Spring Data
+      JPA, Hibernate Envers e OAuth2/Keycloak.
 
 transversais:
   - >
-    Participei do ciclo completo de 7 sistemas em 3,5 anos: coleta de
-    requisitos com o cliente, contratos de API em Swagger, UML das
-    classes de domínio, desenvolvimento backend (Java/Spring e Go) e
-    frontend (Angular, React, Vue), integrações com APIs externas e S3,
-    testes com JUnit e Mockito, deploy com Docker e Portainer, suporte a
-    aplicações em produção com diagnóstico de defeitos e análise de causa
-    raiz (RCA) de incidentes.
+    Participei do ciclo completo de 7 sistemas em 3,5 anos: requisitos
+    com cliente, contratos de API em Swagger, desenvolvimento backend
+    (Java/Spring e Go) e frontend (Angular, React, Vue), testes com JUnit
+    e Mockito, deploy com Docker e suporte a produção com RCA de
+    incidentes.
   - >
-    Contribuí pontualmente em outros produtos do portfólio: marketplace
-    de frete Flex-Frete (mensageria Camel e SQS, React 17), plataforma
-    de gestão documental RRZ (assinatura digital com Hibernate Envers,
-    Spring Boot 3) e app de quizzes Wikle (frontend Angular). Mantive
-    plataforma Wirelist de documentação técnica para montadoras em
-    Spring Boot 2.2 e Angular 15.
+    Contribuí pontualmente em outros produtos: Flex-Frete (mensageria
+    Camel e SQS, React 17), RRZ (assinatura digital com Hibernate Envers,
+    Spring Boot 3) e Wikle (frontend Angular).

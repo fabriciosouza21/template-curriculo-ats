@@ -16,45 +16,34 @@ cases:
     destaque: true    # prioridade máxima: entra sempre salvo incompatibilidade
                       # forte com a vaga (ex.: case backend em vaga só mobile)
     descricao: >
-      Desenvolvi backend em Spring Boot 3.2 e Java 21 para fiscalização de
-      malha rodoviária em Clean Architecture com CQRS-lite (leitura por
-      QueryService com @Cacheable seletivo, escrita por Commands via
-      ports), usando Spring Data JPA com hibernate-spatial/JTS para
-      geometria rodoviária. Implementei sincronização offline-first
-      mobile com lock distribuído em Redis e fallback degradado
-      (consol-sync-api em Node/Express + WebSocket + Valkey), frontend em
-      React 19 com Vite e mapas MapLibre, auth em Cognito e mobile em
-      Flutter.
+      Desenvolvi backend em Spring Boot 3.2 e Java 21 em Clean Architecture
+      com CQRS-lite, usando hibernate-spatial/JTS para geometria rodoviária
+      e sincronização mobile offline-first com lock em Redis. Frontend em
+      React 19 e mobile em Flutter.
 
   - produto: Apontamento
     dominio: timesheet multi-tenant
     descricao: >
-      Modelei arquitetura multi-tenant database-driven para timesheet com
-      policies configuráveis em banco (policy, policy_rule,
-      tenant_policy) e resolvers @Cacheable em Caffeine TTL 1h. Migrei o
-      módulo de timelogging para eliminar condicionais de cliente;
-      Initiative/Workbook/Sprint ainda pendentes (dívida documentada).
-      Spring Boot 3.2 com Java 17, QueryDSL e Angular 17.
+      Modelei arquitetura multi-tenant database-driven com policies em
+      banco e resolvers @Cacheable em Caffeine. Migrei o módulo de
+      timelogging para eliminar condicionais de cliente; Initiative e
+      Workbook ainda pendentes (dívida documentada). Spring Boot 3.2,
+      Java 17, QueryDSL e Angular 17.
 
   - produto: Live2U
     dominio: clínicas e saúde
     descricao: >
       Integrei serviço externo de RAG sobre exames no frontend Angular,
-      com upload de PDF, jobs assíncronos com polling e respostas com
-      citações atreladas às observações de cada exame. Backend Spring
-      Boot 3.2 com Java 21, jOOQ e integrações com serviços de saúde. O
-      backend de IA é externo (ai-api.live2u.com.br, operado pela Sys3);
-      meu trabalho foi a orquestração e integração, não a implementação
-      do backend de IA.
+      com upload de PDF e jobs assíncronos com polling. Backend Spring
+      Boot 3.2 com Java 21 e jOOQ. O backend de IA é externo (operado
+      pela Sys3); meu trabalho foi a orquestração e integração.
 
 transversais:
   - >
     Mantive CI/CD em GitLab com deploy de imagens ARM64 para ECS via ECR
-    (backend) e S3 com CloudFront (frontend). Colaborei em cultura de
-    testes com Testcontainers, AssertJ e WireMock, revisão de código no
-    time e suporte a aplicações em produção com diagnóstico de defeitos.
+    e S3 com CloudFront, cultura de testes com Testcontainers e AssertJ,
+    e suporte a produção com análise de causa raiz (RCA) de incidentes.
   - >
-    Participei de decisões de arquitetura: seleção de abordagens
-    multi-tenant, escolha entre JPA/QueryDSL/jOOQ por produto e
-    modelagem de domínios complexos (inspeções rodoviárias, exames de
-    saúde, apontamento de horas).
+    Participei de decisões de arquitetura (multi-tenant, escolha entre
+    JPA/QueryDSL/jOOQ) e mentorei desenvolvedores juniores em Clean
+    Architecture e revisão de código.
