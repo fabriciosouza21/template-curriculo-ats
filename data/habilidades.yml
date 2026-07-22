@@ -42,40 +42,23 @@ buckets:
       - "Material/PrimeNG/MUI"
       - "MapLibre/Leaflet"
 
-  - rotulo: Auth
-    itens:
-      - "JWT (jjwt)"
-      - "Keycloak (OAuth2/OIDC)"
-      - "AWS Cognito"
-
-  - rotulo: Cloud/DevOps
+  - rotulo: Cloud/DevOps e observabilidade
     itens:
       - "AWS (S3, SQS, SES, ECS, ECR, CloudFront, Cognito, Lambda, Elastic Beanstalk, RDS)"
-      - "Cloudinary"
-      - "Docker"
-      - "Portainer"
-      - "Terraform"
-      - "GitLab CI/CD"
-      - "Jenkins"
+      - "Docker, Portainer, Terraform"
+      - "GitLab CI/CD, Jenkins"
+      - "Sentry, Logstash, OpenTelemetry"
 
   - rotulo: Testes
     itens:
-      - "JUnit"
-      - "Mockito"
-      - "AssertJ"
-      - "Testcontainers"
-      - "WireMock"
-      - "Cypress (E2E)"
-      - "Karma/Jasmine"
-      - "Vitest"
-      - "Jest"
+      - "JUnit, Mockito, AssertJ, Testcontainers, WireMock"
+      - "Cypress (E2E), Karma/Jasmine, Vitest, Jest"
 
-  - rotulo: APIs e Contratos
+  - rotulo: APIs, contratos e auth
     itens:
-      - "REST"
-      - "OpenAPI/Swagger"
+      - "REST, OpenAPI/Swagger, SOAP/WSDL"
       - "GraphQL (cliente via graphql-java-generator)"
-      - "SOAP/WSDL"
+      - "JWT (jjwt), Keycloak (OAuth2/OIDC), AWS Cognito"
 
   - rotulo: Documentos/Dados
     itens:
@@ -85,20 +68,13 @@ buckets:
       - "Commons CSV"
       - "Velocity (templates)"
 
-  - rotulo: Observabilidade
-    itens:
-      - "Sentry"
-      - "Logstash"
-      - "OpenTelemetry"
-
   - rotulo: Metodologia e soft skills
     itens:
       - "Kanban (Redmine, ClickUp)"
-      - "Code Review com criticidade"
-      - "Análise de causa raiz (RCA) de incidentes"
-      - "Mentoria de desenvolvedores juniores"
-      - "Levantamento de requisitos com cliente"
-      - "Design de sistemas e integrações"
+      - "Code review com criticidade no time"
+      - "Análise de causa raiz (RCA) de incidentes em produção"
+      - "Mentoria de juniores em Clean Architecture"
+      - "Levantamento de requisitos com cliente (7 domínios)"
 
   - rotulo: IA aplicada
     itens:
