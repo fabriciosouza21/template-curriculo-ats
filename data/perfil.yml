@@ -23,12 +23,13 @@ perfis:
     (2024).
   fullstack: >
     Engenheiro de Software Pleno com 5 anos de experiência em entregas
-    full-stack end-to-end em Java/Spring e Angular/React, com passagem
-    por 7 domínios de negócio em consultoria e produto. Bacharel em
-    Ciência da Computação pela UFPA (2024).
+    full-stack end-to-end em Java/Spring e Angular/React, construindo 10
+    sistemas em produção em 7 domínios de negócio (gamificação com 2,4M
+    ações, crédito rural para 79 clientes, saúde com 13 mil
+    beneficiários). Bacharel em Ciência da Computação pela UFPA (2024).
   backend: >
     Engenheiro de Software Pleno com 5 anos de experiência em backend
-    Java/Spring (Clean Architecture, CQRS-lite, multi-tenancy,
-    mensageria em Camel e SQS), atuando em 7 domínios de negócio.
+    Java/Spring (Clean Architecture, multi-tenancy, mensageria),
+    construindo 10 sistemas em produção em 7 domínios de negócio.
     Bacharel em Ciência da Computação pela UFPA (2024).
 
