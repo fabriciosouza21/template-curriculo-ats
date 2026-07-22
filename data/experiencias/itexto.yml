@@ -16,20 +16,19 @@ cases:
     dominio: gamificação corporativa e eventos
     destaque: true    # case principal: 3,5 anos de atuação contínua
     descricao: >
-      Desenvolvi por 3,5 anos a plataforma Weex de gamificação corporativa
-      que processou mais de 2,4 milhões de ações de usuários e ~290 mil
-      inscrições em eventos. Em arquitetura de microsserviços com
-      mensageria assíncrona, implementei o motor de roletas sorteáveis,
-      rankings, conquistas e feedback em vídeo.
+      Desenvolvi por 3,5 anos a plataforma de gamificação corporativa que
+      processou mais de 2,4 milhões de ações e ~290 mil inscrições em
+      eventos, em arquitetura de microsserviços com mensageria assíncrona.
+      Implementei o motor de roletas sorteáveis, rankings e conquistas.
 
   - produto: Plataforma Ativus
     dominio: crédito rural e análise de crédito
     descricao: >
       Desenvolvi features de crédito rural na plataforma multi-tenant
       Ativus, que atende 79 clientes do agronegócio (Bunge, Raízen,
-      BASF). Construí o gateway orquestrado de Certidões Negativas de
-      Débitos que acelerou a validação cadastral integrando Receita
-      Federal, estaduais, municipais e Ibama.
+      BASF). Construí o gateway de Certidões Negativas de Débitos que
+      acelerou a validação cadastral integrando Receita Federal, estaduais
+      e Ibama.
 
   - produto: Corteva
     dominio: barter agrícola

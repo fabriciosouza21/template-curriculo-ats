@@ -222,11 +222,39 @@ def _render_perfil(doc: Document, perfil: dict, chave: str, cor=None, rotulo="Pe
     paragrafo(doc, texto)
 
 
-def _render_habilidades(doc: Document, habilidades: dict, rotulos: list[str], cor=None) -> None:
+def _render_habilidades(doc: Document, habilidades: dict, rotulos: list, cor=None) -> None:
+    """Renderiza buckets de habilidades.
+
+    Cada entrada em `rotulos` pode ser:
+    - string: usa todos os itens do bucket canônico.
+    - dict {rotulo, itens: [...]}: subseleciona itens do bucket canônico
+      pelo valor exato. Permite aparar o bucket para a vaga sem alterar a
+      fonte canônica.
+    """
     h2(doc, "Habilidades", cor=cor)
-    for rotulo in rotulos:
+    for entrada in rotulos:
+        if isinstance(entrada, dict):
+            rotulo = entrada["rotulo"]
+            itens_pedido = entrada.get("itens")
+        else:
+            rotulo = entrada
+            itens_pedido = None
         bucket = _selecionar_bucket(habilidades.get("buckets", []), rotulo)
-        itens = bucket.get("itens", [])
+        itens_canon = bucket.get("itens", [])
+        if itens_pedido is None:
+            itens = itens_canon
+        else:
+            # Filtra preservando a ordem canônica; rejeita item pedido
+            # que não existe (falha ruidosa na hora de selecionar).
+            conjunto_canon = [str(i).strip() for i in itens_canon]
+            itens = []
+            for ip in itens_pedido:
+                ip = str(ip).strip()
+                assert ip in conjunto_canon, (
+                    f"item de habilidade {ip!r} não existe no bucket "
+                    f"{rotulo!r}. Disponíveis: {conjunto_canon}"
+                )
+                itens.append(ip)
         corpo = ", ".join(str(i).strip() for i in itens)
         bullet(doc, corpo, negrito_prefixo=f"{rotulo}: ")
 

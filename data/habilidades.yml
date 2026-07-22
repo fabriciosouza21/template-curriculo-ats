@@ -1,22 +1,26 @@
 # Buckets de habilidades. Cada bucket tem um rótulo e uma lista de skills
-# como strings simples. O manifesto seleciona quais buckets entram por
-# vaga. Lista curada: prioriza o que é sustentável em entrevista e pedido
-# pela vaga-alvo, evitando empilhamento para ATS.
+# como strings simples. O agente pode reordenar buckets e reescrever o
+# agrupamento conforme a vaga.
 buckets:
   - rotulo: Backend (JVM)
     itens:
       - "Java (11/16/17/21)"
       - "Spring Boot (2.x e 3.x)"
-      - "Spring Data JPA, Spring Security"
+      - "Spring Data JPA"
+      - "Spring Security"
       - "Spring Cloud (Eureka, Feign)"
       - "Spring WebFlux"
 
   - rotulo: Persistência
     itens:
-      - "PostgreSQL, MySQL"
-      - "Hibernate/JPA, Hibernate Envers (auditoria)"
+      - "PostgreSQL"
+      - "MySQL"
+      - "Hibernate/JPA"
+      - "Hibernate Envers (auditoria)"
+      - "hibernate-spatial + JTS (geometria)"
       - "Flyway (migrations)"
-      - "QueryDSL"
+      - "QueryDSL (queries dinâmicas)"
+      - "jOOQ"
       - "SQL nativo"
 
   - rotulo: Mensageria e Integração
@@ -24,35 +28,68 @@ buckets:
       - "Apache Camel"
       - "AWS SQS"
       - "Redis (cache e pub/sub)"
+      - "Valkey"
       - "WebSocket (STOMP/SockJS)"
 
   - rotulo: Frontend
     itens:
-      - "Angular (13 a 20)"
+      - "Angular (7/13/15/16/17/20)"
       - "React (17/18/19)"
       - "Vue 2"
       - "React Native/Expo"
-      - "Vite, MapLibre/Leaflet"
+      - "Flutter"
+      - "Vite"
+      - "Material/PrimeNG/MUI"
+      - "MapLibre/Leaflet"
 
-  - rotulo: Cloud/DevOps e observabilidade
+  - rotulo: Auth
     itens:
-      - "AWS (S3, SQS, ECS, ECR, CloudFront, Cognito, Lambda, RDS)"
-      - "Docker, Terraform"
+      - "JWT (jjwt)"
+      - "Keycloak (OAuth2/OIDC)"
+      - "AWS Cognito"
+
+  - rotulo: Cloud/DevOps
+    itens:
+      - "AWS (S3, SQS, SES, ECS, ECR, CloudFront, Cognito, Lambda, Elastic Beanstalk, RDS)"
+      - "Cloudinary"
+      - "Docker"
+      - "Portainer"
+      - "Terraform"
       - "GitLab CI/CD"
-      - "Sentry, OpenTelemetry"
+      - "Jenkins"
 
   - rotulo: Testes
     itens:
-      - "JUnit, Mockito, AssertJ"
-      - "Testcontainers, WireMock"
-      - "Cypress (E2E), Vitest, Jest"
+      - "JUnit"
+      - "Mockito"
+      - "AssertJ"
+      - "Testcontainers"
+      - "WireMock"
+      - "Cypress (E2E)"
+      - "Karma/Jasmine"
+      - "Vitest"
+      - "Jest"
 
-  - rotulo: APIs, contratos e auth
+  - rotulo: APIs e Contratos
     itens:
-      - "REST, OpenAPI/Swagger"
-      - "GraphQL (cliente)"
-      - "JWT (jjwt)"
-      - "Keycloak (OAuth2/OIDC), AWS Cognito"
+      - "REST"
+      - "OpenAPI/Swagger"
+      - "GraphQL (cliente via graphql-java-generator)"
+      - "SOAP/WSDL"
+
+  - rotulo: Documentos/Dados
+    itens:
+      - "Apache POI (Excel)"
+      - "iText/PDFBox/html2pdf (PDF)"
+      - "OpenCSV"
+      - "Commons CSV"
+      - "Velocity (templates)"
+
+  - rotulo: Observabilidade
+    itens:
+      - "Sentry"
+      - "Logstash"
+      - "OpenTelemetry"
 
   - rotulo: Metodologia e soft skills
     itens:
@@ -61,13 +98,6 @@ buckets:
       - "Análise de causa raiz (RCA) de incidentes em produção"
       - "Mentoria de juniores em Clean Architecture"
       - "Levantamento de requisitos com cliente (7 domínios)"
-
-  - rotulo: Documentos/Dados
-    itens:
-      - "Apache POI (Excel)"
-      - "iText/PDFBox (PDF)"
-      - "OpenCSV"
-      - "Velocity (templates)"
 
   - rotulo: IA aplicada
     itens:

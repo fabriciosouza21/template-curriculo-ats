@@ -346,8 +346,14 @@ def _checar_cases(texto: str, manifesto: dict) -> None:
 
 
 def _checar_buckets(texto: str, manifesto: dict) -> None:
-    """Cada bucket pedido no manifesto deve aparecer (por rótulo)."""
-    for rotulo in manifesto.get("habilidades_buckets", []) or []:
+    """Cada bucket pedido no manifesto deve aparecer (por rótulo).
+
+    Entrada do manifesto aceita dois formatos por bucket:
+    - string: usa rótulo direto.
+    - dict {rotulo, itens}: extrai rótulo do campo `rotulo`.
+    """
+    for entrada in manifesto.get("habilidades_buckets", []) or []:
+        rotulo = entrada["rotulo"] if isinstance(entrada, dict) else entrada
         assert str(rotulo) in texto, (
             f"Manifesto pediu o bucket de habilidades {rotulo!r} mas o "
             f"rótulo não aparece no Document. Verifique o render de "

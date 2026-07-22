@@ -1,7 +1,12 @@
 # Identidade da pessoa e parágrafos de perfil para o topo do curriculo.
+# O cargo do cabeçalho (cargo_apresentacao) é o default quando o manifesto
+# não especificar um título próprio. O manifesto pode sobrescrever via
+# campo `cargo_titulo` para refletir a vaga-alvo (ex.: "Desenvolvedor
+# Backend Pleno" para vaga backend, "Desenvolvedor Full Stack Pleno" para
+# vaga full-stack).
 pessoa:
   nome: Candidato Nome Completo
-  cargo_apresentacao: Desenvolvedor Full Stack Pleno
+  cargo_apresentacao: Desenvolvedor Full Stack Pleno  # default; manifesto pode sobrescrever
   contato:
     telefone: "(00) 00000-0000"
     email: candidato.exemplo@dominio.com
@@ -11,11 +16,12 @@ pessoa:
     portfolio: seu-portfolio.com/portfolio/seu-usuario
 
 # Perfis alternativos por chave. O manifesto de seleção escolhe um pela
-# chave (`perfil_chave`). Adicione novos perfis conforme surgirem vagas
-# com personas diferentes (backend puro, frontend, IA, etc.).
+# chave (`perfil_chave`). Cada perfil é um parágrafo curto (2 frases) com
+# números de impacto. Adicione novos perfis conforme surgirem vagas com
+# personas diferentes (backend puro, frontend, IA, etc.).
 perfis:
   generico: >
-    Desenvolvedor Full Stack Pleno com quase 5 anos de experiência em
+    Desenvolvedor de Software Pleno com quase 5 anos de experiência em
     desenvolvimento Full Stack focado em Java/Spring, Clean Architecture
     e design de código. Passagem por sete domínios de negócio distintos
     (agronegócio, fintech, logística, automotivo, gamificação corporativa,
