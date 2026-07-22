@@ -85,12 +85,20 @@ buckets:
       - "Commons CSV"
       - "Velocity (templates)"
 
-  - rotulo: Observabilidade e metodologia
+  - rotulo: Observabilidade
     itens:
       - "Sentry"
       - "Logstash"
       - "OpenTelemetry"
+
+  - rotulo: Metodologia e soft skills
+    itens:
       - "Kanban (Redmine, ClickUp)"
+      - "Code Review com criticidade"
+      - "Análise de causa raiz (RCA) de incidentes"
+      - "Mentoria de desenvolvedores juniores"
+      - "Levantamento de requisitos com cliente"
+      - "Design de sistemas e integrações"
 
   - rotulo: IA aplicada
     itens:

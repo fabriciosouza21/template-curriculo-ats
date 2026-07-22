@@ -23,9 +23,12 @@ perfis:
     (2024).
   fullstack: >
     Engenheiro de Software Pleno com 5 anos de experiência em entregas
-    full-stack end-to-end (Java/Spring no backend, Angular/React no
-    frontend), do design de sistemas e APIs ao deploy em produção.
-    Passagem por sete domínios de negócio em consultoria e produto,
-    com foco em design de código, testes automatizados e CI/CD.
+    full-stack end-to-end em Java/Spring e Angular/React, com passagem
+    por 7 domínios de negócio em consultoria e produto. Bacharel em
+    Ciência da Computação pela UFPA (2024).
+  backend: >
+    Engenheiro de Software Pleno com 5 anos de experiência em backend
+    Java/Spring (Clean Architecture, CQRS-lite, multi-tenancy,
+    mensageria em Camel e SQS), atuando em 7 domínios de negócio.
     Bacharel em Ciência da Computação pela UFPA (2024).
 

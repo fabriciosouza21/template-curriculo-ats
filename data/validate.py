@@ -126,6 +126,7 @@ def validar_verbos_passado(dados: dict) -> None:
     verbos_base = {
         'Construí', 'Modelei', 'Implementei', 'Mantive', 'Desenvolvi',
         'Integrei', 'Estruturei', 'Participei', 'Colaborei', 'Refatorei',
+        'Atuei', 'Contribuí',
     }
     for exp in dados['experiencias']:
         for case in exp['cases']:
