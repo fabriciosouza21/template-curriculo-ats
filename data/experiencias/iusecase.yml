@@ -16,11 +16,11 @@ cases:
     destaque: true    # prioridade máxima: entra sempre salvo incompatibilidade
                       # forte com a vaga (ex.: case backend em vaga só mobile)
     descricao: >
-      Desenvolvi backend para fiscalização de malha rodoviária em Clean
-      Architecture com separação de leitura e escrita, usando dados
-      geoespaciais para geometria rodoviária e sincronização mobile
-      offline-first com lock distribuído em cache. Frontend em React 19 e
-      mobile em Flutter.
+      Desenvolvi backend para fiscalização de malha rodoviária atendendo 3
+      contratos que cobriam 14 rodovias e 138 segmentos em Minas Gerais
+      (MG-050, BR-265, BR-491, BR-135, BR-459 e MG-173, entre outras),
+      com dados geoespaciais para geometria rodoviária e sincronização
+      mobile offline-first.
 
   - produto: Apontamento
     dominio: timesheet multi-tenant
