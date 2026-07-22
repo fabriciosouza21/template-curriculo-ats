@@ -17,34 +17,30 @@ cases:
                       # forte com a vaga (ex.: case backend em vaga só mobile)
     descricao: >
       Desenvolvi backend para fiscalização de malha rodoviária atendendo 3
-      contratos que cobriam 14 rodovias e 138 segmentos em Minas Gerais
-      (MG-050, BR-265, BR-491, BR-135, BR-459 e MG-173, entre outras),
-      com dados geoespaciais para geometria rodoviária e sincronização
-      mobile offline-first.
+      contratos que cobriam 14 rodovias e 138 segmentos em Minas Gerais,
+      com dados geoespaciais e sincronização mobile offline-first.
 
   - produto: Apontamento
     dominio: timesheet multi-tenant
     descricao: >
-      Modelei arquitetura multi-tenant com regras de negócio configuráveis
-      por cliente em banco e cache para reduzir custo e melhorar latência.
-      Migrei o módulo de apontamento de horas para eliminar condicionais
-      de cliente do código; Initiative e Workbook ainda pendentes (dívida
-      documentada). Spring Boot 3.2, Java 17 e Angular 17.
+      Modelei sistema de timesheet multi-tenant servindo 4 empresas e 28
+      clientes de infraestrutura (DNIT, DER/SP, INVEPAR), com motor de
+      regras configuráveis por cliente e cache para reduzir custo.
+      Initiative e Workbook ainda pendentes (dívida documentada).
 
   - produto: Live2U
     dominio: clínicas e saúde
     descricao: >
-      Integrei serviço externo de RAG sobre exames no frontend Angular,
-      com upload de PDF e processamento assíncrono com polling. O backend
-      de IA é externo (operado pela Sys3); meu trabalho foi a orquestração
-      e integração, não a implementação do backend de IA.
+      Construí plataforma de saúde multi-tenant com 3 clínicas, migração
+      de 13.416 beneficiários, 31 especialidades e integrações com
+      operadora TopMed, marketplace Alloyal e WhatsApp. O backend de IA
+      é externo (operado pela Sys3); meu trabalho foi a orquestração.
 
 transversais:
   - >
-    Mantive CI/CD em GitLab com deploy de imagens para ECS via ECR e S3
-    com CloudFront, cultura de testes com Testcontainers e AssertJ, e
+    Mantive CI/CD em GitLab com deploy para ECS via ECR e S3 com
+    CloudFront, cultura de testes com Testcontainers e AssertJ, e
     suporte a produção com análise de causa raiz (RCA) de incidentes.
   - >
-    Participei de decisões de arquitetura (multi-tenant, escolha entre
-    abordagens de persistência) e mentorei desenvolvedores juniores em
-    Clean Architecture e revisão de código.
+    Participei de decisões de arquitetura e mentorei desenvolvedores
+    juniores em Clean Architecture e revisão de código.

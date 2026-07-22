@@ -17,26 +17,25 @@ cases:
     destaque: true    # case principal: 3,5 anos de atuação contínua
     descricao: >
       Desenvolvi por 3,5 anos a plataforma Weex de gamificação corporativa
-      em ~20 microsserviços com mensageria assíncrona, geração de
-      certificados em Lambda e infraestrutura como código. Implementei o
-      motor de roletas, rankings, conquistas e relatórios finais de
-      eventos, com frontend em Angular.
+      com mais de 2,4 milhões de ações registradas e ~290 mil inscrições
+      em eventos. Arquitetura em microsserviços com mensageria assíncrona,
+      implementando motor de roletas, rankings, conquistas e feedback em
+      vídeo.
 
   - produto: Plataforma Ativus
     dominio: crédito rural e análise de crédito
     descricao: >
-      Construí features de crédito rural na plataforma Ativus, incluindo
-      o gateway de 8 tipos de Certidões Negativas de Débitos com
-      integração orquestrada e processamento assíncrono via mensageria.
-      Backend Spring e frontend Angular.
+      Construí features de crédito rural na plataforma multi-tenant
+      Ativus, atendendo 79 clientes do agronegócio (Bunge, Raízen, BASF),
+      incluindo gateway orquestrado de 8 tipos de Certidões Negativas de
+      Débitos integrando Receita Federal, estaduais, municipais e Ibama.
 
   - produto: Corteva
     dominio: barter agrícola
     descricao: >
-      Implementei sistema de barter agrícola em microserviços com
-      descoberta de serviços e comunicação entre APIs, Vue 2, PostgreSQL
-      com auditoria de alterações e Single Sign-On. Inclui marketplace de
-      cessões e conciliação financeira.
+      Implementei sistema de barter agrícola com catálogo de 131
+      defensivos, 25 tipos de garantia rural e marketplace de cessões,
+      em microserviços com auditoria de alterações e Single Sign-On.
 
   - produto: QR-Capital
     dominio: tokenização de ativos financeiros
