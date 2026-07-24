@@ -147,6 +147,7 @@ def _escrever_data_dir(
     habilidades_yml: str = HABILIDADES_YML,
     cursos_yml: str = CURSOS_YML,
     index_yml: str = INDEX_YML,
+    ia_yml: str = IA_YML,
 ) -> Path:
     """Escreve os YAMLs canônicos mínimos em tmp_path e retorna tmp_path."""
     (tmp_path / "perfil.yml").write_text(perfil_yml, encoding="utf-8")
@@ -154,7 +155,7 @@ def _escrever_data_dir(
     (tmp_path / "formacao.yml").write_text(FORMACAO_YML, encoding="utf-8")
     (tmp_path / "cursos.yml").write_text(cursos_yml, encoding="utf-8")
     (tmp_path / "idiomas.yml").write_text(IDIOMAS_YML, encoding="utf-8")
-    (tmp_path / "ia.yml").write_text(IA_YML, encoding="utf-8")
+    (tmp_path / "ia.yml").write_text(ia_yml, encoding="utf-8")
     (tmp_path / "index.yml").write_text(index_yml, encoding="utf-8")
     exp_dir = tmp_path / "experiencias"
     exp_dir.mkdir(exist_ok=True)
@@ -351,6 +352,62 @@ def test_ia_false_omite_secao(tmp_path):
     texto = _texto_doc(doc).upper()
 
     assert "IA COMO EIXO" not in texto
+
+
+# ---- Teste 6b: seleção de itens de IA via ia_rotulos ----
+
+# YAML com 2 itens de IA para testar seleção parcial.
+IA_DOIS_ITENS_YML = """
+itens:
+  - rotulo: RAG de teste
+    descricao: >
+      Item RAG de teste.
+  - rotulo: Agentico de teste
+    descricao: >
+      Item agentico de teste.
+"""
+
+
+def test_ia_rotulos_seleciona_apenas_itens_pedidos(tmp_path):
+    # YAML tem 2 itens; manifesto pede só 1.
+    data_dir = _escrever_data_dir(tmp_path, ia_yml=IA_DOIS_ITENS_YML)
+    manifesto = _manifesto_minimo(
+        ia=True, ia_rotulos=["RAG de teste"],
+    )
+    manifesto_path = _escrever_manifesto(tmp_path, manifesto)
+
+    doc = montar(manifesto_path, data_dir=data_dir)
+    texto = _texto_doc(doc)
+
+    assert "RAG de teste" in texto
+    # Item não selecionado não entra.
+    assert "Agentico de teste" not in texto
+
+
+def test_ia_rotulos_ausente_renderiza_todos_itens(tmp_path):
+    # Sem ia_rotulos (backward compat): renderiza todos os itens.
+    data_dir = _escrever_data_dir(tmp_path, ia_yml=IA_DOIS_ITENS_YML)
+    manifesto = _manifesto_minimo(ia=True)
+    manifesto_path = _escrever_manifesto(tmp_path, manifesto)
+
+    doc = montar(manifesto_path, data_dir=data_dir)
+    texto = _texto_doc(doc)
+
+    assert "RAG de teste" in texto
+    assert "Agentico de teste" in texto
+
+
+def test_ia_rotulos_inexistente_levanta_keyerror(tmp_path):
+    data_dir = _escrever_data_dir(tmp_path, ia_yml=IA_DOIS_ITENS_YML)
+    manifesto = _manifesto_minimo(
+        ia=True, ia_rotulos=["Inexistente"],
+    )
+    manifesto_path = _escrever_manifesto(tmp_path, manifesto)
+
+    with pytest.raises(KeyError) as excinfo:
+        montar(manifesto_path, data_dir=data_dir)
+
+    assert "Inexistente" in str(excinfo.value)
 
 
 # ---- Testes adicionais para erros explícitos pedidos no brief ----

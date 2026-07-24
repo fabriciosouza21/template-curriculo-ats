@@ -188,6 +188,17 @@ def _selecionar_curso(cursos: list[dict], rotulo_pedido: str) -> dict:
     )
 
 
+def _selecionar_item_ia(itens: list[dict], rotulo_pedido: str) -> dict:
+    for i in itens:
+        if i.get("rotulo") == rotulo_pedido:
+            return i
+    rotulos = [i.get("rotulo") for i in itens]
+    raise KeyError(
+        f"item de IA {rotulo_pedido!r} não existe. "
+        f"Rótulos disponíveis: {rotulos}"
+    )
+
+
 def _selecionar_perfil(perfis: dict, chave_pedido: str) -> str:
     if chave_pedido not in perfis:
         raise KeyError(
@@ -333,9 +344,15 @@ def _render_idiomas(doc: Document, idiomas: dict, cor=None) -> None:
         bullet(doc, nivel, negrito_prefixo=f"{idioma}: ")
 
 
-def _render_ia(doc: Document, ia: dict, cor=None) -> None:
+def _render_ia(doc: Document, ia: dict, rotulos: list[str] | None, cor=None) -> None:
     h2(doc, "IA como Eixo de Estudo e Aplicação", cor=cor)
-    for item in ia.get("itens", []):
+    itens_canon = ia.get("itens", [])
+    if rotulos is None:
+        # Sem seleção: renderiza todos (backward compat).
+        itens = itens_canon
+    else:
+        itens = [_selecionar_item_ia(itens_canon, r) for r in rotulos]
+    for item in itens:
         rotulo = str(item["rotulo"]).strip()
         descricao = str(item["descricao"]).strip()
         bullet(doc, descricao, negrito_prefixo=f"{rotulo}: ")
@@ -405,8 +422,8 @@ def montar(manifesto_path: str | Path, data_dir: str | Path = None) -> Document:
     if manifesto.get("idiomas"):
         _render_idiomas(doc, dados["idiomas"], cor=cor)
 
-    # 8. IA (toggle).
+    # 8. IA (toggle). ia_rotulos opcional seleciona itens; ausente = todos.
     if manifesto.get("ia"):
-        _render_ia(doc, dados["ia"], cor=cor)
+        _render_ia(doc, dados["ia"], manifesto.get("ia_rotulos"), cor=cor)
 
     return doc

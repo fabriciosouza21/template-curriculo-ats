@@ -4,15 +4,12 @@
 itens:
   - rotulo: "RAG com rigor experimental"
     descricao: >
-      Benchmark próprio de modelos de embedding para RAG em português e
-      inglês, com corpus desenhado à mão (40 queries parafraseadas,
-      45 documentos com hard negatives de propósito) e métricas de
-      retrieval (MRR, Recall@K, nDCG@10) em múltiplas execuções para
-      controlar cold start. Comparação de 7 modelos (multilingual-e5
-      base e small, qwen3-embedding, mpnet, MiniLM, jina-code via
-      llama.cpp, Ollama), testando instruction prefixes (query/passage)
-      e latência. Conclusão documentada: e5-small superou qwen3 em MRR
-      com 2,7x menos espaço e 14x mais velocidade.
+      Benchmark de modelos de embedding para RAG em português e inglês,
+      com corpus desenhado à mão (40 queries, 45 documentos com hard
+      negatives) e métricas de retrieval (MRR, Recall@K, nDCG@10).
+      Comparei 7 modelos (multilingual-e5 base e small, qwen3-embedding,
+      mpnet, MiniLM, jina-code). Conclusão: e5-small superou qwen3 em
+      MRR com 2,7x menos espaço e 14x mais velocidade.
 
   - rotulo: "Engenharia agentic"
     descricao: >
@@ -21,8 +18,29 @@ itens:
       Driven, RPI, Rules, Skills, MCPs) e padrões de Subagents e
       Multi-Agents.
 
-  - rotulo: "Desenvolvimento assistido por IA"
+  - rotulo: "Refino de especificação com loop de feedback"
     descricao: >
-      Prática diária com loop de feedback curto, TDD científico (caso
-      falhando pelo motivo certo, fix mínimo, revert para confirmar red
-      de novo, baby steps) e revisão humana do diff antes de commitar.
+      Trabalho a especificação como algo que evolui na implementação,
+      não como solução pré-definida antes do código. Interrogo o LLM em
+      seções pequenas e delimitadas para fragmentar o conhecimento, e
+      mantenho um loop de feedback curto, validando cada passo antes de
+      aceitar a saída do modelo.
+
+  - rotulo: "Fundamentos como base do trabalho assistido"
+    descricao: >
+      Fundamentos de engenharia como base do trabalho assistido por IA:
+      TDD, entregas pequenas e feedback contínuo validam o output do
+      modelo. Escrevo testes antes de o agente alterar código e empilho
+      gates determinísticos (lint, testes, quality checks) em pre-commit
+      e CI reproduzível, para que o feedback chegue antes da revisão
+      humana.
+
+  - rotulo: "Dívidas de software no desenvolvimento assistido"
+    descricao: >
+      Consciência dos três tipos de dívida no desenvolvimento assistido
+      por IA: técnica (camada de código), cognitiva (erosão do
+      entendimento compartilhado do sistema) e de intenção (objetivos e
+      rationale não externalizados). A IA reduz a técnica enquanto
+      acelera as outras duas silenciosamente. Trato entendimento como
+      entregável e adoto práticas que preservam o modelo mental do
+      sistema.
