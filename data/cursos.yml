@@ -53,6 +53,11 @@ cursos:
     descricao: >
       Udemy (out/2021). Docker para Desenvolvedores.
 
+  - rotulo: Kubernetes
+    descricao: >
+      Curso (2026, em andamento). Kubernetes: orquestração de containers,
+      deployments, services, escalonamento e operação de clusters.
+
   - rotulo: Banco de dados
     descricao: >
       IGTI/XP (set/2022). Análise de Banco de Dados: PostgreSQL, SQL

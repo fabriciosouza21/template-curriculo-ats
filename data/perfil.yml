@@ -39,3 +39,11 @@ perfis:
     Java/Spring (Clean Architecture, multi-tenancy, mensageria),
     construindo 10 sistemas em produção em 7 domínios de negócio.
     Bacharel em Ciência da Computação pela UFPA (2024).
+  fullstack_senior: >
+    Desenvolvedor Fullstack Sênior com quase 5 anos de experiência em
+    entregas end-to-end em Java/Spring e Angular/React, atuando em
+    monólito legado e microsserviços com mensageria, AWS e CI/CD.
+    Construiu 10 sistemas em produção em 7 domínios de negócio
+    (gamificação com 2,4M ações, crédito rural para 79 clientes, saúde
+    com 13 mil beneficiários). Bacharel em Ciência da Computação pela
+    UFPA (2024).
