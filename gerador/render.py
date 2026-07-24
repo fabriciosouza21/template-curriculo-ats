@@ -1,8 +1,6 @@
 """Helpers de renderização ATS para python-docx.
 
-Extrai e publica os helpers de `gerar_curriculo_ats.py` (linhas 28-124).
-Comportamento idêntico ao legado validado em produção: mesmo A4, mesmas
-margens 2cm, mesma fonte Calibri 10.5pt, mesmos espaçamentos.
+A4, margens 2cm, fonte Calibri 10.5pt, espaçamentos controlados.
 
 Estilo ATS único: sem tabelas de layout, uma coluna, texto puro. A cor de
 destaque é opcional (default None = preto, ATS-friendly). Quando o manifesto

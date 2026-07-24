@@ -1,6 +1,6 @@
 """Testes dos helpers ATS em gerador.render.
 
-Cobrem o comportamento extraído de gerar_curriculo_ats.py:
+Cobrem:
 - cada helper de conteúdo adiciona ao menos 1 parágrafo;
 - style define A4 (210x297 mm) e margens 2cm;
 - nome produz texto em maiúsculas;

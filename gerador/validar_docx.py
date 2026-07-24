@@ -55,8 +55,7 @@ TELEFONE_ESPERADO = "(00) 00000-0000"
 EMAIL_ESPERADO = "candidato.exemplo@dominio.com"
 
 # Verbos de ação aceitos no início (ou nos 3 primeiros tokens) do corpo
-# de bullets de experiência. Espelha a lista do `gerar_curriculo_ats.py`
-# e adiciona "Refatorei" pedido no brief da Task 4.
+# de bullets de experiência.
 VERBOS_ACEITOS = {
     "Construí",
     "Modelei",
@@ -208,8 +207,7 @@ def _checar_verbos_experiencia(doc: _DocumentType) -> None:
 
     Caso especial do YAML real: "Consol: case principal. Construí..."
     tem um marcador "case principal." antes do verbo. Aceitamos verbo
-    em qualquer dos 3 primeiros tokens do corpo, replicando a lógica do
-    `gerar_curriculo_ats.py:validar()` linhas 264-286.
+    em qualquer dos 3 primeiros tokens do corpo.
     """
     dentro_experiencia = False
     for p in doc.paragraphs:

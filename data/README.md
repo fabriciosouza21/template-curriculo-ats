@@ -5,15 +5,9 @@ estes arquivos.
 
 ## Fonte canônica
 
-O conteúdo destes YAMLs espelha fielmente os scripts Python legados na
-raiz do repo: `gerar_curriculo_ats.py`, `zup/zup_curriculo_backend.py`,
-`innvo_labs/innvo_curriculo_java_senior.py`. Esses scripts foram
-curados e aprovados em revisões humanas e representam o que
-efetivamente entra no currículo. O `briefing_llm_externo.md` é insumo
-upstream mais verboso, NÃO canônico: detalhes que estão no briefing mas
-foram omitidos dos scripts (por concisão editorial) ficam de fora dos
-YAMLs. Para adicionar detalhe do briefing a um case, edite o YAML
-diretamente.
+Os YAMLs nesta pasta são a única fonte de verdade do currículo. O
+gerador DOCX (`gerar.py` + `gerador/`) consome-os via `validate.py`.
+Para alterar conteúdo, edite o YAML diretamente.
 
 ## Estrutura
 
