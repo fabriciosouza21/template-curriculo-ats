@@ -31,6 +31,7 @@ if str(ROOT) not in sys.path:
 
 from gerador.montar import montar  # noqa: E402
 from gerador.validar_docx import validar  # noqa: E402
+from data.validate import carregar_tudo  # noqa: E402
 
 # Limite de páginas do currículo. Curto o suficiente para ser respeitado
 # pelo recrutador, longo o suficiente para perfis com bagagem.
@@ -116,15 +117,22 @@ def main() -> int:
         print(f"[FAIL] manifesto não encontrado: {manifesto_path}", file=sys.stderr)
         return 1
 
-    # Carrega manifesto para passar ao validador.
+    # Carrega manifesto e perfil para passar ao validador.
     with open(manifesto_path) as f:
         manifesto = json.load(f)
+    # carregar_tudo resolve perfil.real.yml (local) em preferência ao
+    # template público perfil.yml. Retorna None se o data_dir sumir.
+    try:
+        dados = carregar_tudo(ROOT / "data")
+        perfil = dados["perfil"]
+    except (FileNotFoundError, KeyError):
+        perfil = None
 
     print(f"[1/5] Montando Document a partir de {manifesto_path.name}...")
     doc = montar(manifesto_path)
 
     print("[2/5] Validando regras ATS...")
-    validar(doc, manifesto=manifesto)
+    validar(doc, manifesto=manifesto, perfil=perfil)
 
     # Resolve caminho de saída.
     # Roteamento por empresa: output/<empresa>/<stem>.docx quando o manifesto

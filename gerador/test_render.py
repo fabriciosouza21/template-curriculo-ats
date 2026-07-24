@@ -25,7 +25,7 @@ from gerador.render import (
 
 # Helpers de conteúdo (style é de configuração, testado à parte).
 HELPERS_CONTEUDO = [
-    ("nome", lambda d: nome(d, "Candidato Nome")),
+    ("nome", lambda d: nome(d, "Candidato Teste")),
     ("cargo", lambda d: cargo(d, "Engenheiro de Software Pleno")),
     ("contato", lambda d: contato(d, ["a@b.com", "(91) 99999-9999", "Cidade, UF"])),
     ("h2", lambda d: h2(d, "Experiência")),
@@ -74,10 +74,9 @@ def test_style_configura_fonte_e_espacamento_do_normal():
 
 def test_nome_produz_maiusculas():
     doc = Document()
-    nome(doc, "Candidato Nome")
+    nome(doc, "Candidato Teste")
     p = doc.paragraphs[-1]
-    assert p.text == "CANDIDATO NOME"
-    assert p.text == "Candidato Nome".upper()
+    assert p.text == "Candidato Teste".upper()
 
 
 def test_h2_produz_maiusculas_e_bold():

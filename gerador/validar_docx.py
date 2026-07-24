@@ -49,11 +49,6 @@ EN_DASH = "\u2013"
 # manifesto).
 SECOES_OBRIGATORIAS = ("PERFIL", "HABILIDADES", "EXPERIÊNCIA", "FORMAÇÃO")
 
-# Contato real do brief (regra 4 do contrato do gerador). A validação
-# garante que o render não dropou telefone nem email por descuido.
-TELEFONE_ESPERADO = "(00) 00000-0000"
-EMAIL_ESPERADO = "candidato.exemplo@dominio.com"
-
 # Verbos de ação aceitos no início (ou nos 3 primeiros tokens) do corpo
 # de bullets de experiência.
 VERBOS_ACEITOS = {
@@ -98,6 +93,7 @@ PREFIXOS_PRODUTO = {
 def validar(
     doc: _DocumentType,
     manifesto: Optional[dict] = None,
+    perfil: Optional[dict] = None,
 ) -> None:
     """Valida o Document python-docx contra regras ATS.
 
@@ -110,6 +106,10 @@ def validar(
         doc: Document python-docx gerado por montar().
         manifesto: dicionário do manifesto de seleção (opcional). Quando
             None, apenas as regras gerais ATS são checadas.
+        perfil: dicionário do perfil carregado (opcional, chave 'pessoa'
+            com 'contato'). Quando fornecido, checa que o telefone e
+            email esperados estão presentes no DOCX. Quando None, a
+            checagem de contato é pulada (sem contato de referência).
 
     Raises:
         AssertionError: na primeira regra ATS violada, com mensagem
@@ -126,8 +126,8 @@ def validar(
     # 3. Seções obrigatórias presentes.
     _checar_secoes_obrigatorias(texto, manifesto=manifesto)
 
-    # 4. Contato presente.
-    _checar_contato(texto)
+    # 4. Contato presente (telefone e email esperados do perfil).
+    _checar_contato(texto, perfil=perfil)
 
     # 5. Verbos de ação no passado em bullets de experiência.
     _checar_verbos_experiencia(doc)
@@ -186,14 +186,27 @@ def _checar_secoes_obrigatorias(texto: str, manifesto: Optional[dict] = None) ->
         )
 
 
-def _checar_contato(texto: str) -> None:
-    """Regra 4: telefone e email reais presentes (não dropados pelo render)."""
-    assert TELEFONE_ESPERADO in texto, (
-        f"Telefone de contato ausente: esperado {TELEFONE_ESPERADO!r}."
-    )
-    assert EMAIL_ESPERADO in texto, (
-        f"E-mail de contato ausente: esperado {EMAIL_ESPERADO!r}."
-    )
+def _checar_contato(texto: str, perfil: Optional[dict] = None) -> None:
+    """Regra 4: telefone e email esperados presentes no DOCX.
+
+    O contato esperado vem do perfil carregado (perfil['pessoa']['contato']).
+    Garante que o render não dropou telefone nem email por descuido. Quando
+    `perfil` é None, a checagem é pulada: sem contato de referência não há
+    como validar. Útil para o modo CLI puro sobre DOCX já salvo.
+    """
+    if perfil is None:
+        return
+    contato = perfil.get("pessoa", {}).get("contato", {})
+    telefone = str(contato.get("telefone", "")).strip()
+    email = str(contato.get("email", "")).strip()
+    if telefone:
+        assert telefone in texto, (
+            f"Telefone de contato ausente: esperado {telefone!r}."
+        )
+    if email:
+        assert email in texto, (
+            f"E-mail de contato ausente: esperado {email!r}."
+        )
 
 
 def _checar_verbos_experiencia(doc: _DocumentType) -> None:

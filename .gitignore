@@ -8,6 +8,12 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
+# Dados pessoais reais (não versionados; o template perfil.yml vai público)
+data/perfil.real.yml
+
+# Cartas de apresentação (produto local, não do pipeline público)
+cartas/
+
 # Artefatos de processo de desenvolvimento (locais, não do produto)
 .superpowers/
 .handoff/

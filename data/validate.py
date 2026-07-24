@@ -19,7 +19,13 @@ import yaml
 
 
 def carregar_tudo(data_dir: Path) -> dict:
-    """Carrega todos os YAMLs referenciados em index.yml."""
+    """Carrega todos os YAMLs referenciados em index.yml.
+
+    Para o perfil, se data/perfil.real.yml existir, ele substitui
+    data/perfil.yml. Isso permite versionar perfil.yml como template
+    público (com dados fictícios) e manter os dados reais localmente,
+    fora do controle de versão (.gitignore: data/perfil.real.yml).
+    """
     data_dir = Path(data_dir)
     with open(data_dir / 'index.yml') as f:
         index = yaml.safe_load(f)
@@ -28,9 +34,17 @@ def carregar_tudo(data_dir: Path) -> dict:
         with open(data_dir / rel) as f:
             return yaml.safe_load(f)
 
+    # Override de perfil: perfil.real.yml (local, gitignored) tem
+    # precedência sobre perfil.yml (template público) quando existe.
+    perfil_real = data_dir / 'perfil.real.yml'
+    if perfil_real.exists():
+        perfil = load('perfil.real.yml')
+    else:
+        perfil = load(index['perfil'])
+
     return {
         'index': index,
-        'perfil': load(index['perfil']),
+        'perfil': perfil,
         'habilidades': load(index['habilidades']),
         'experiencias': [load(rel) for rel in index['experiencias']],
         'formacao': load(index['formacao']),

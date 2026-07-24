@@ -1,49 +1,54 @@
-# Identidade da pessoa e parágrafos de perfil para o topo do curriculo.
-# O cargo do cabeçalho (cargo_apresentacao) é o default quando o manifesto
-# não especificar um título próprio. O manifesto pode sobrescrever via
+# Identidade da pessoa e paragrafos de perfil para o topo do curriculo.
+#
+# Este arquivo e um TEMPLATE com dados ficticios, versionado publicamente.
+# Para gerar o curriculo real, crie data/perfil.real.yml (gitignored) com
+# seus dados; o gerador o usa em preferencia a este template. Veja o
+# README para instrucoes.
+#
+# O cargo do cabecalho (cargo_apresentacao) e o default quando o manifesto
+# nao especificar um titulo proprio. O manifesto pode sobrescrever via
 # campo `cargo_titulo` para refletir a vaga-alvo (ex.: "Desenvolvedor
 # Backend Pleno" para vaga backend, "Desenvolvedor Full Stack Pleno" para
 # vaga full-stack).
 pessoa:
   nome: Candidato Nome Completo
-  cargo_apresentacao: Desenvolvedor Full Stack Pleno  # default; manifesto pode sobrescrever
+  cargo_apresentacao: Desenvolvedor(a) Full Stack Pleno  # default; manifesto pode sobrescrever
   contato:
     telefone: "(00) 00000-0000"
     email: candidato.exemplo@dominio.com
     localizacao: Cidade, UF
-    linkedin: linkedin.com/in/seu-perfil/
+    linkedin: linkedin.com/in/seu-perfil
     github: github.com/seu-usuario
-    portfolio: seu-portfolio.com/portfolio/seu-usuario
+    portfolio: seu-portfolio.com
 
-# Perfis alternativos por chave. O manifesto de seleção escolhe um pela
-# chave (`perfil_chave`). Cada perfil é um parágrafo curto (2 frases) com
-# números de impacto. Adicione novos perfis conforme surgirem vagas com
+# Perfis alternativos por chave. O manifesto de selecao escolhe um pela
+# chave (`perfil_chave`). Cada perfil e um paragrafo curto (2 frases) com
+# numeros de impacto. Adicione novos perfis conforme surgirem vagas com
 # personas diferentes (backend puro, frontend, IA, etc.).
 perfis:
   generico: >
-    Desenvolvedor de Software Pleno com quase 5 anos de experiência em
+    Desenvolvedor(a) de Software Pleno com quase 5 anos de experiencia em
     desenvolvimento Full Stack focado em Java/Spring, Clean Architecture
-    e design de código. Passagem por sete domínios de negócio distintos
-    (agronegócio, fintech, logística, automotivo, gamificação corporativa,
-    compliance e educação). Bacharel em Ciência da Computação pela UFPA
-    (2024).
+    e design de codigo. Passagem por sete dominios de negocio distintos
+    (agronegocio, fintech, logistica, automotivo, gamificacao corporativa,
+    compliance e educacao). Bacharel em Ciencia da Computacao (2024).
   fullstack: >
-    Desenvolvedor Full Stack Pleno com quase 5 anos de experiência em
+    Desenvolvedor(a) Full Stack Pleno com quase 5 anos de experiencia em
     entregas full-stack end-to-end em Java/Spring e Angular/React,
-    construindo 10 sistemas em produção em 7 domínios de negócio
-    (gamificação com 2,4M ações, crédito rural para 79 clientes, saúde
-    com 13 mil beneficiários). Bacharel em Ciência da Computação pela
-    UFPA (2024).
+    construindo 10 sistemas em producao em 7 dominios de negocio
+    (gamificacao com 2,4 milhoes de acoes, credito rural para 79 clientes,
+    saude com 13 mil beneficiarios). Bacharel em Ciencia da Computacao
+    (2024).
   backend: >
-    Desenvolvedor Backend Pleno com quase 5 anos de experiência em
+    Desenvolvedor(a) Backend Pleno com quase 5 anos de experiencia em
     Java/Spring (Clean Architecture, multi-tenancy, mensageria),
-    construindo 10 sistemas em produção em 7 domínios de negócio.
-    Bacharel em Ciência da Computação pela UFPA (2024).
+    construindo 10 sistemas em producao em 7 dominios de negocio.
+    Bacharel em Ciencia da Computacao (2024).
   fullstack_senior: >
-    Desenvolvedor Fullstack Sênior com quase 5 anos de experiência em
+    Desenvolvedor(a) Fullstack Senior com quase 5 anos de experiencia em
     entregas end-to-end em Java/Spring e Angular/React, atuando em
-    monólito legado e microsserviços com mensageria, AWS e CI/CD.
-    Construiu 10 sistemas em produção em 7 domínios de negócio
-    (gamificação com 2,4M ações, crédito rural para 79 clientes, saúde
-    com 13 mil beneficiários). Bacharel em Ciência da Computação pela
-    UFPA (2024).
+    monolito legado e microsservicos com mensageria, AWS e CI/CD.
+    Construiu 10 sistemas em producao em 7 dominios de negocio
+    (gamificacao com 2,4 milhoes de acoes, credito rural para 79 clientes,
+    saude com 13 mil beneficiarios). Bacharel em Ciencia da Computacao
+    (2024).

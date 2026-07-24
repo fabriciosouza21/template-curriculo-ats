@@ -33,8 +33,8 @@ from gerador.validar_docx import validar
 
 # ---- Fixtures sintéticas ----
 
-# Contato canônico real do brief (telefone + email). Outros campos podem
-# variar por teste. Estes dois são exigidos pelas regras de validação.
+# Contato sintético exigido pelas regras de validação de contato.
+# Dados fictícios (não-PII): os testes constroem perfil inline.
 _TELEFONE = "(00) 00000-0000"
 _EMAIL = "candidato.exemplo@dominio.com"
 
@@ -48,7 +48,7 @@ def _doc_valido_minimo() -> Document:
     """
     doc = Document()
     style(doc)
-    nome(doc, "Candidato Nome")
+    nome(doc, "Candidato Teste")
     cargo(doc, "Engenheiro de Software Pleno")
     contato(doc, [_TELEFONE, _EMAIL, "Belém, PA"])
 
@@ -128,7 +128,7 @@ def test_secao_obrigatoria_ausente_levanta_assertionerror():
     """Constrói um Document sem a seção PERFIL e verifica que falha."""
     doc = Document()
     style(doc)
-    nome(doc, "Candidato Nome")
+    nome(doc, "Candidato Teste")
     cargo(doc, "Engenheiro de Software Pleno")
     contato(doc, [_TELEFONE, _EMAIL])
     # Sem PERFIL. Pulamos direto para HABILIDADES, EXPERIÊNCIA, FORMAÇÃO.
@@ -151,7 +151,7 @@ def test_verbo_de_acao_ausente_em_experiencia_levanta_mencionando_verbo():
     """Bullet de experiência começando com 'Trabalhei' (não aceito) deve falhar."""
     doc = Document()
     style(doc)
-    nome(doc, "Candidato Nome")
+    nome(doc, "Candidato Teste")
     cargo(doc, "Engenheiro de Software Pleno")
     contato(doc, [_TELEFONE, _EMAIL])
 
@@ -185,7 +185,7 @@ def test_verbo_de_acao_aceito_em_experiencia_nao_levanta():
         # é complexo; em vez disso, criamos um novo doc controlado.
         doc = Document()
         style(doc)
-        nome(doc, "Candidato Nome")
+        nome(doc, "Candidato Teste")
         cargo(doc, "Engenheiro de Software Pleno")
         contato(doc, [_TELEFONE, _EMAIL])
         h2(doc, "Perfil")
@@ -211,7 +211,7 @@ def test_verbo_de_acao_apos_prefixo_produto_eh_aceito():
     # de verbo.
     doc = Document()
     style(doc)
-    nome(doc, "Candidato Nome")
+    nome(doc, "Candidato Teste")
     cargo(doc, "Engenheiro de Software Pleno")
     contato(doc, [_TELEFONE, _EMAIL])
     h2(doc, "Perfil")
@@ -289,7 +289,7 @@ def test_manifesto_case_pedido_ausente_falha():
     # Constrói um doc sem mencionar 'Consol'.
     doc2 = Document()
     style(doc2)
-    nome(doc2, "Candidato Nome")
+    nome(doc2, "Candidato Teste")
     cargo(doc2, "Engenheiro de Software Pleno")
     contato(doc2, [_TELEFONE, _EMAIL])
     h2(doc2, "Perfil")
