@@ -1,5 +1,6 @@
 {
   "vaga": "Marlabs Software Engineer full-stack",
+  "empresa": "marlabs",
   "perfil_chave": "fullstack",
   "cargo_apresentacao": "Desenvolvedor Full Stack Pleno",
   "experiencias": [
@@ -20,7 +21,7 @@
     {"rotulo": "Mensageria e Integração", "itens": ["Apache Camel", "AWS SQS", "Redis (cache e pub/sub)", "WebSocket (STOMP/SockJS)"]},
     {"rotulo": "Frontend", "itens": ["Angular (7/13/15/16/17/20)", "React (17/18/19)", "Vue 2", "React Native/Expo", "Vite", "MapLibre/Leaflet"]},
     {"rotulo": "Auth", "itens": ["JWT (jjwt)", "Keycloak (OAuth2/OIDC)", "AWS Cognito"]},
-    {"rotulo": "Cloud/DevOps", "itens": ["AWS (S3, SQS, SES, ECS, ECR, CloudFront, Cognito, Lambda, Elastic Beanstalk, RDS)", "Docker", "Terraform", "GitLab CI/CD"]},
+    {"rotulo": "Cloud/DevOps", "itens": ["AWS (EC2, S3, SQS, SNS, SES, ECS, ECR, CloudFront, Cognito, Lambda, Elastic Beanstalk, RDS)", "Docker", "Terraform", "GitLab CI/CD"]},
     {"rotulo": "Testes", "itens": ["JUnit", "Mockito", "AssertJ", "Testcontainers", "WireMock", "Cypress (E2E)", "Vitest", "Jest"]},
     {"rotulo": "APIs e Contratos", "itens": ["REST", "OpenAPI/Swagger", "GraphQL (cliente via graphql-java-generator)", "SOAP/WSDL"]},
     "Observabilidade",

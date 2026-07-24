@@ -81,6 +81,19 @@ def _converter_para_pdf(docx_path: Path) -> Path:
     return pdf_path
 
 
+def _sanitizar_empresa(nome: str) -> str:
+    """Normaliza o nome da empresa para uso como nome de subdiretório.
+
+    Colapsa caracteres fora de [a-zA-Z0-9_-] para '_' e rejeita vazios.
+    Impede path traversal (../) e nomes inválidos para o filesystem.
+    """
+    import re
+    limpo = re.sub(r"[^a-zA-Z0-9_-]", "_", nome.strip())
+    if not limpo:
+        raise ValueError(f"empresa sanitizada vazia a partir de: {nome!r}")
+    return limpo
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Gera DOCX de currículo a partir de manifesto JSON."
@@ -114,12 +127,20 @@ def main() -> int:
     validar(doc, manifesto=manifesto)
 
     # Resolve caminho de saída.
-    output_dir = ROOT / "output"
-    output_dir.mkdir(exist_ok=True)
+    # Roteamento por empresa: output/<empresa>/<stem>.docx quando o manifesto
+    # declara "empresa". Override explícito via --output tem precedência.
     if args.output is not None:
         output_path = args.output.resolve()
     else:
-        output_path = output_dir / f"{manifesto_path.stem}.docx"
+        output_dir = ROOT / "output"
+        empresa = manifesto.get("empresa")
+        if empresa:
+            subdir = output_dir / _sanitizar_empresa(empresa)
+            subdir.mkdir(parents=True, exist_ok=True)
+        else:
+            output_dir.mkdir(exist_ok=True)
+            subdir = output_dir
+        output_path = subdir / f"{manifesto_path.stem}.docx"
 
     print(f"[3/5] Salvando em {output_path}...")
     doc.save(str(output_path))

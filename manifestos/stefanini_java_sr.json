@@ -1,5 +1,6 @@
 {
   "vaga": "Stefanini Desenvolvedor Back End Java SR",
+  "empresa": "stefanini",
   "perfil_chave": "backend",
   "cargo_apresentacao": "Desenvolvedor Back End Java SR",
   "perfil_rotulo": "Desenvolvedor Back End Java SR",
@@ -21,8 +22,9 @@
     "Persistência",
     "Mensageria e Integração",
     "Testes",
-    "Cloud/DevOps e observabilidade",
-    "APIs, contratos e auth",
+    "Cloud/DevOps",
+    "Observabilidade",
+    "APIs e Contratos",
     "Metodologia e soft skills"
   ],
   "cursos_rotulos": [

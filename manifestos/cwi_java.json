@@ -1,0 +1,40 @@
+{
+  "vaga": "CWI Desenvolvedor Java (backend, sistemas criticos de alta disponibilidade)",
+  "empresa": "cwi",
+  "perfil_chave": "backend",
+  "cargo_apresentacao": "Desenvolvedor Java",
+  "perfil_rotulo": "Desenvolvedor Java",
+  "cor": "#0B1641",
+  "experiencias": [
+    {
+      "arquivo": "experiencias/iusecase.yml",
+      "cases": ["Consol", "Apontamento", "Live2U"],
+      "transversais": [0, 1]
+    },
+    {
+      "arquivo": "experiencias/itexto.yml",
+      "cases": ["Weex", "Plataforma Ativus", "Corteva"],
+      "transversais": [0]
+    }
+  ],
+  "habilidades_buckets": [
+    {"rotulo": "Backend (JVM)", "itens": ["Java (11/16/17/21)", "Spring Boot (2.x e 3.x)", "Spring Data JPA", "Spring Security", "Spring Cloud (Eureka, Feign)", "Maven / Gradle"]},
+    {"rotulo": "Persistência", "itens": ["PostgreSQL", "MySQL", "Hibernate/JPA", "Hibernate Envers (auditoria)", "Flyway (migrations)", "QueryDSL (queries dinâmicas)", "SQL nativo"]},
+    {"rotulo": "Mensageria e Integração", "itens": ["Apache Camel", "RabbitMQ", "Apache Kafka", "AWS SQS", "Redis (cache e pub/sub)"]},
+    {"rotulo": "Cloud/DevOps", "itens": ["AWS (EC2, S3, SQS, SNS, SES, ECS, ECR, CloudFront, Cognito, Lambda, Elastic Beanstalk, RDS)", "Azure DevOps", "SonarQube", "Docker", "Terraform", "GitLab CI/CD", "Jenkins"]},
+    "Observabilidade",
+    {"rotulo": "Testes", "itens": ["JUnit", "Mockito", "AssertJ", "Testcontainers", "WireMock"]},
+    {"rotulo": "APIs e Contratos", "itens": ["REST", "OpenAPI/Swagger", "SOAP/WSDL"]},
+    "Metodologia e soft skills"
+  ],
+  "cursos_rotulos": [
+    "Java",
+    "Spring/Cloud",
+    "Docker",
+    "Arquitetura",
+    "Effective Java",
+    "Kubernetes"
+  ],
+  "idiomas": true,
+  "ia": false
+}

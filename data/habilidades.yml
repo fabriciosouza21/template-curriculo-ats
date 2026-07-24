@@ -10,6 +10,10 @@ buckets:
       - "Spring Security"
       - "Spring Cloud (Eureka, Feign)"
       - "Spring WebFlux"
+      - "Java EE / Servlets"
+      - "Struts"
+      - "JSP"
+      - "Maven / Gradle"
 
   - rotulo: Persistência
     itens:
@@ -26,6 +30,8 @@ buckets:
   - rotulo: Mensageria e Integração
     itens:
       - "Apache Camel"
+      - "RabbitMQ"
+      - "Apache Kafka"
       - "AWS SQS"
       - "Redis (cache e pub/sub)"
       - "Valkey"
@@ -38,6 +44,8 @@ buckets:
       - "Vue 2"
       - "React Native/Expo"
       - "Flutter"
+      - "TypeScript"
+      - "HTML5/CSS3"
       - "Vite"
       - "Material/PrimeNG/MUI"
       - "MapLibre/Leaflet"
@@ -50,7 +58,9 @@ buckets:
 
   - rotulo: Cloud/DevOps
     itens:
-      - "AWS (S3, SQS, SES, ECS, ECR, CloudFront, Cognito, Lambda, Elastic Beanstalk, RDS)"
+      - "AWS (EC2, S3, SQS, SNS, SES, ECS, ECR, CloudFront, Cognito, Lambda, Elastic Beanstalk, RDS)"
+      - "Azure DevOps"
+      - "SonarQube"
       - "Cloudinary"
       - "Docker"
       - "Portainer"

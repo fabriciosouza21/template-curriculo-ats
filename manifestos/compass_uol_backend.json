@@ -1,0 +1,45 @@
+{
+  "vaga": "Compass UOL Spring Boot Back-End Developer Pleno (Remoto)",
+  "empresa": "compass_uol",
+  "perfil_chave": "backend",
+  "cargo_apresentacao": "Desenvolvedor Back-End Java Pleno",
+  "perfil_rotulo": "Perfil",
+  "cor": "#0B1641",
+  "experiencias": [
+    {
+      "arquivo": "experiencias/iusecase.yml",
+      "cases": ["Consol", "Apontamento", "Live2U"],
+      "transversais": [1]
+    },
+    {
+      "arquivo": "experiencias/itexto.yml",
+      "cases": ["Weex", "Plataforma Ativus", "Corteva"],
+      "transversais": []
+    }
+  ],
+  "habilidades_buckets": [
+    {"rotulo": "Backend (JVM)", "itens": ["Java (11/16/17/21)", "Spring Boot (2.x e 3.x)", "Spring Data JPA", "Spring Security", "Spring Cloud (Eureka, Feign)", "Maven / Gradle"]},
+    {"rotulo": "Persistência", "itens": ["PostgreSQL", "MySQL", "Hibernate/JPA", "Hibernate Envers (auditoria)", "hibernate-spatial + JTS (geometria)", "Flyway (migrations)", "QueryDSL (queries dinâmicas)", "SQL nativo"]},
+    {"rotulo": "Mensageria e Integração", "itens": ["Apache Camel", "RabbitMQ", "Apache Kafka", "AWS SQS", "Redis (cache e pub/sub)"]},
+    {"rotulo": "Cloud/DevOps", "itens": ["AWS (EC2, S3, SQS, SNS, SES, ECS, ECR, CloudFront, Cognito, Lambda, Elastic Beanstalk, RDS)", "Azure DevOps", "SonarQube", "Docker", "Terraform", "GitLab CI/CD", "Jenkins"]},
+    {"rotulo": "Observabilidade", "itens": ["Sentry", "Logstash", "OpenTelemetry"]},
+    {"rotulo": "Testes", "itens": ["JUnit", "Mockito", "AssertJ", "Testcontainers", "WireMock"]},
+    {"rotulo": "APIs e Contratos", "itens": ["REST", "OpenAPI/Swagger", "SOAP/WSDL"]},
+    {"rotulo": "IA aplicada", "itens": ["Engenharia agentic (Context Engineering, Skills, MCPs, Subagents)"]},
+    {"rotulo": "Metodologia e soft skills", "itens": ["Kanban (Redmine, ClickUp)", "Code review com padrões definidos pelo time", "Análise de causa raiz (RCA) de incidentes em produção", "Mentoria de juniores em Clean Architecture", "Levantamento de requisitos com cliente (7 domínios)"]}
+  ],
+  "cursos_rotulos": [
+    "Java",
+    "Spring/Cloud",
+    "Arquitetura",
+    "Docker",
+    "Kubernetes"
+  ],
+  "idiomas": true,
+  "ia": true,
+  "ia_rotulos": [
+    "RAG com rigor experimental",
+    "Engenharia agentic",
+    "Dívidas de software no desenvolvimento assistido"
+  ]
+}
