@@ -11,8 +11,10 @@ __pycache__/
 # Dados pessoais reais (não versionados; o template perfil.yml vai público)
 data/perfil.real.yml
 
-# Cartas de apresentação (produto local, não do pipeline público)
-cartas/
+# Cartas de apresentação (produto local, não do pipeline público).
+# EMAIL_PADRAO.md é exceção: documenta o schema do pipeline, sem PII.
+cartas/*
+!cartas/EMAIL_PADRAO.md
 
 # Artefatos de processo de desenvolvimento (locais, não do produto)
 .superpowers/

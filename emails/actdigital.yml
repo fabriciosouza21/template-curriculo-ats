@@ -1,0 +1,58 @@
+# Vaga de email: Desenvolvedor(a) Pleno Remoto na Act Digital (ago/2026).
+#
+# Estrutura fixa lida por gerar_email.py. As frases de case são sentencas
+# completas (o gerador nao concatena prefixo), o campo produto serve para
+# validar que o case existe em data/experiencias/.
+vaga:
+  empresa: Act Digital
+  cargo: Desenvolvedor(a) Pleno Remoto
+  para: ana.araujo@actdigital.com
+  saudacao: Prezada Ana,
+
+abertura:
+  quem_sou: >
+    Sou Desenvolvedor Full Stack Pleno com quase cinco anos de experiência
+    em Java/Spring e Angular, dez sistemas em produção em sete domínios e
+    bacharel em Ciência da Computação pela UFPA (2024).
+  pilha:
+    - Java EE
+    - Spring Boot
+    - microsserviços com mensageria
+    - Angular 15+
+    - APIs REST com OpenAPI
+    - SQL
+
+cases:
+  - produto: Weex
+    frase: >
+      Na itexto construí a Weex, plataforma de gamificação com mais de
+      2,4 milhões de ações em microsserviços
+  - produto: Consol
+    frase: >
+      Na iUsecase, onde atuo, desenvolvi backend de fiscalização de
+      malha rodoviária em MG, com vistorias offline sobre 14 rodovias
+
+extras: >
+  Na rotina tenho testes com JUnit e Testcontainers, modelagem com JPA e
+  Flyway, Redis, Flutter e IA aplicada (Claude Code, engenharia agêntica,
+  RAG externo).
+
+gaps:
+  itens:
+    - Spring Batch
+    - DB2
+    - SVN
+    - API Manager
+  contrapontos:
+    - >
+      Minha base é PostgreSQL e MySQL em SQL ANSI, Git com CI/CD em GitLab
+      e alto volume via mensageria em vez de batch
+    - >
+      Em SQL Server tenho formação (Análise de Banco de Dados, IGTI),
+      sem uso em produção
+  extras:
+    - >
+      Não usei Jira, mas mantenho rotina ágil completa em ClickUp e
+      Redmine, com Kanban e sprints
+
+remoto_desde: 2021
