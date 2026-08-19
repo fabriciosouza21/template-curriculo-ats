@@ -1,0 +1,41 @@
+{
+  "vaga": "Act Digital Desenvolvedor(a) Pleno Remoto (Java EE, Spring Boot, Angular 15+, microsservicos e APIs)",
+  "empresa": "actdigital",
+  "perfil_chave": "fullstack",
+  "cargo_apresentacao": "Desenvolvedor(a) Full Stack Pleno",
+  "perfil_rotulo": "Perfil",
+  "cor": "#0B1641",
+  "experiencias": [
+    {
+      "arquivo": "experiencias/iusecase.yml",
+      "cases": ["Consol", "Apontamento", "Live2U"],
+      "transversais": [0]
+    },
+    {
+      "arquivo": "experiencias/itexto.yml",
+      "cases": ["Weex", "Plataforma Ativus"],
+      "transversais": [0]
+    }
+  ],
+  "habilidades_buckets": [
+    {"rotulo": "Backend (JVM)", "itens": ["Java (11/16/17/21)", "Spring Boot (2.x e 3.x)", "Spring Data JPA", "Spring Security", "Spring Cloud (Eureka, Feign)", "Java EE / Servlets", "Struts", "JSP", "Maven / Gradle"]},
+    {"rotulo": "Frontend", "itens": ["Angular (7/13/15/16/17/20)", "TypeScript", "HTML5/CSS3", "Material/PrimeNG/MUI", "Flutter"]},
+    {"rotulo": "APIs e Contratos", "itens": ["REST", "OpenAPI/Swagger", "SOAP/WSDL"]},
+    {"rotulo": "Persistência", "itens": ["PostgreSQL", "MySQL", "Hibernate/JPA", "Hibernate Envers (auditoria)", "Flyway (migrations)", "QueryDSL (queries dinâmicas)", "SQL nativo"]},
+    {"rotulo": "Mensageria e Integração", "itens": ["Apache Camel", "RabbitMQ", "Apache Kafka", "AWS SQS", "Redis (cache e pub/sub)"]},
+    {"rotulo": "Auth", "itens": ["JWT (jjwt)", "Keycloak (OAuth2/OIDC)", "AWS Cognito"]},
+    {"rotulo": "Testes", "itens": ["JUnit", "Mockito", "AssertJ", "Testcontainers", "WireMock", "Karma/Jasmine"]},
+    {"rotulo": "Cloud/DevOps", "itens": ["Docker", "GitLab CI/CD", "Jenkins", "SonarQube"]},
+    {"rotulo": "Metodologia e soft skills", "itens": ["Kanban (Redmine, ClickUp)", "Code review com padrões definidos pelo time", "Análise de causa raiz (RCA) de incidentes em produção", "Mentoria de juniores em Clean Architecture", "Levantamento de requisitos com cliente (7 domínios)"]}
+  ],
+  "cursos_rotulos": [
+    "Java",
+    "Spring/Cloud",
+    "Banco de dados",
+    "Arquitetura",
+    "Docker"
+  ],
+  "idiomas": true,
+  "ia": true,
+  "ia_rotulos": ["RAG com rigor experimental", "Engenharia agentic"]
+}
