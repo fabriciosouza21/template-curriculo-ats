@@ -12,6 +12,18 @@ o que entra para cada vaga, e `gerar.py` monta e valida o documento.
 Pipeline: `manifesto JSON` -> `gerador.montar.montar()` -> `Document` ->
 `gerador.validar_docx.validar()` -> DOCX + PDF em `output/<empresa>/`.
 
+Pipeline de email de candidatura: `emails/<empresa>.yml` -> `gerar_email.py`
+-> `cartas/<empresa>_email.md`. A estrutura fixa (frases de abertura,
+parágrafo de transparência, fechamento, assinatura) vive em
+`gerador/email.py`; o schema do YAML e as regras de conteúdo estão em
+`cartas/EMAIL_PADRAO.md`.
+
+## Vagas coladas pelo usuário (Gupy e similares)
+
+Quando o usuário colar a descrição de uma vaga, normalmente da Gupy, siga
+`cartas/AGENTS.md`. A pergunta fixa do formulário ("Fale sobre você...") é o
+entregável principal; manifesto e currículo são adicionais, só quando pedidos.
+
 ## Regras de honestidade (não-negociáveis)
 
 Estas regras são validadas em `data/validate.py` e `gerador/validar_docx.py`.
@@ -79,6 +91,21 @@ O documento gerado deve ser legível por parsers de ATS:
 1. Copie um manifesto existente em `manifestos/`.
 2. Preencha os campos (veja README para a referência completa).
 3. Rode `python3 gerar.py manifestos/<novo>.json` e confirme 2 páginas.
+
+### Adicionar um email de candidatura
+
+1. Copie um YAML existente em `emails/` e preencha a estrutura fixa
+   (referência completa em `cartas/EMAIL_PADRAO.md`): `vaga`, `abertura`,
+   `cases`, `extras`, `gaps`, `remoto_desde`.
+2. Rode `python3 gerar_email.py emails/<novo>.yml`; a saída vai para
+   `cartas/<novo>_email.md`.
+3. O gerador falha sozinho se faltar campo obrigatório, se o case não
+   existir em `data/experiencias/`, se o corpo passar de 200 palavras,
+   se houver em-dash/en-dash ou sentença começando minúscula.
+
+Conteúdo: contraponto de gap vem das experiências ou dos cursos em
+`data/`; gap sem contraponto é declarado seco. A assinatura sai do perfil
+real via `carregar_tudo()`, nunca hardcode.
 
 ### Adicionar um perfil
 
